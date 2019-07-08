@@ -39,6 +39,7 @@
                     <td>{{ $work->created_at}}</td>
              --}}
                     <td>
+                        
                         {{-- {{dd($student_class)}} --}}
                         <a href="{{ url ('student_classes.editWorks', $student_class->id) }}" class="btn btn-default">
                             Edit
