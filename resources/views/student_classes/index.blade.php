@@ -9,9 +9,10 @@
         $_GET['work_id'] = ''; 
     @endphp
     {{-- {{dd($_GET['work_id'])}} --}}
-        <a href="{{ route('student_classes.create', ['work_id' => $_GET['work_id']])}}" class="btn btn-success" role="button">Create Class</a>
+       
 
-        
+        <a href="{{ route('student_classes.create', ['work_id' => $_GET['work_id']])}}" class="btn btn-success" role="button">Create Class</a> 
+ 
         
 <table class="table table-striped">
     <thead>
@@ -35,13 +36,19 @@
                     Edit
                 </a>
                   
-                <form class="form-horizontal pull-right" action="{{ URL::route('student_classes.destroy', ['id' => $student_class->id, 'work_id' => $_GET['work_id']]) }}" method="POST" >
+                {{-- <form class="form-horizontal pull-right" action="{{ URL::route('student_classes.destroy', ['id' => $student_class->id, 'work_id' => $_GET['work_id']]) }}" method="POST" >
                         {{ csrf_field() }}
                     <input type="hidden" name="_method" value="DELETE"/>
                     <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">
                         Delete
                     </button>
-                </form>
+                </form> --}}
+
+                <form class="form-horizontal pull-right" action="{{ URL::route('student_classes.destroy', ['id' => $student_class->id, 'work_id' => $_GET['work_id']]) }}" method="POST" >
+                  {{ csrf_field() }}
+              <input type="hidden" name="_method" value="DELETE"/>
+              <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">Delete</button>
+          </form>
             </td>
         </tr>
       @endforeach

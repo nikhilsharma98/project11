@@ -21,13 +21,13 @@ class StudentClassesController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
     public function index()
     {
         //
         // $student_classes = StudentClass::all();
         $student_classes = StudentClass::with(['Works'])->get();
-        // dd($student_classes);
+            // dd($student_classes);
         return view('student_classes.index')->with('student_classes', $student_classes);
     }
                                                                                             
@@ -39,14 +39,15 @@ class StudentClassesController extends Controller
     public function create()
     {
         
+        // $works = Work::all();
         $students = Work::all();
         // dd($students);
         
         return view('student_classes.create')
-        // ->with('work', $works);
+        // ->with('works', $works);
         ->with('students', $students);
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -61,14 +62,16 @@ class StudentClassesController extends Controller
         ]);
         	
         // dd($request->all());
+        
         $student_class = new StudentClass;
         $student_class->title = $request->input('title');
         $student_class->section = $request->input('section');
+        // $student_class->work_id = $request->input('work_id');
         $student_class->work_id = $request->input('work_id');
-        
         $student_class->save();
 
         // return redirect('/student_classes')->with ('success', 'Class created');
+      
         return redirect('/student_classes/?work_id='.$request->input('work_id'))->with ('success', 'Class created');
     }
    
@@ -82,6 +85,7 @@ class StudentClassesController extends Controller
     {
         // dd($id);
         $student_class = StudentClass::find($id);
+        $students = Work::all();
         // dd($student_class->works()->get());
         // dd($student_class->get());
         // dd($student_class);
@@ -89,6 +93,7 @@ class StudentClassesController extends Controller
         // $works = Work::find($id);
         
         return view('student_classes.show')->with('student_class', $student_class);
+        // ->with('works', $work);
     }
         
     /**
@@ -99,28 +104,15 @@ class StudentClassesController extends Controller
      */
 
 
-    // public function getSectionStudents($id){
-    //     // $data = StudentClassStudent::with(['Student','StudentClass'])->where('student_class_id', $id)->get();
-    //   $data = Work ::with(['Student','StudentClass'])->where('title', $id)->get();
-    //     $works = Work::all();
-    //     $students = Student::all();
-    //     return view('works.index')->with('allData', $data)
-    //     ->with('Work', $Works);
-    // }
+   
     public function editWorks($id)
     {
+        // dd($id);
+        $work = Work::find($id);
+        $students = Work::all();
+        // dd($work);
         
-        // dd($id->all());
-        $student_class = Work::find($id);
-        $student_class = StudentClass::with(['Work'])->where('work_id', $id)->get();
-        $works = Work::all();
-        // dd($student_class);
-        
-        return view('show.editWorks')->with('student_class', $student_class)
-        ->with('work', $works);
-        // ->with('student_classes', $student_classes);
-        
-
+        return view('student_classes.editWorks')->with('student_class', $student_class);
     }
 
     public function edit($id)
@@ -128,11 +120,14 @@ class StudentClassesController extends Controller
         // dd($id);
         $student_class = StudentClass::find($id);
         $students = Work::all();
+        // $works = Work::all();
         // dd($students);
         return view('student_classes.edit')->with('student_class', $student_class)
         // ->with('work', $works);
         ->with('students', $students);
     }
+   
+   
 
     /**
      * Update the specified resource in storage.
@@ -162,18 +157,27 @@ class StudentClassesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function destroyWorks($id)
-    // {
+    public function destroyWorks($id)
+    {
+        // dd($id);
+        $work = Work::find($id);
+        // dd($work);
+        $students = Work::all();
+        $work->delete();
+        // $student_class = StudentClass::find($id);
+        // $students = Work::all();
+        // $works = Work::all();
+        // $works = Work::->where('id', $id)->first();
+        // $student_class = StudentClass::with(['Work'])->where('student_class_id', $id)->get();
         
-    //     $works = Work::all();
-    //     // $works = Work::->where('id', $id)->first();
-    //     // $student_class = StudentClass::with(['Work'])->where('student_class_id', $id)->get();
-    //     // dd($student_class);
 
-    //     return view('show.destroyWorks')->with('student_class', $student_class)
-    //     ->with('work', $works);
-    // ->with('students', $students);
-    // }
+  
+    return view('student_classes.destroyWorks')->with('student_class', $student_class);
+
+    // return redirect('/student_classes/?work_id='.$_GET['work_id'])->with ('success', 'Class Deleted');
+    }
+
+   
 
     public function destroy($id)
     {

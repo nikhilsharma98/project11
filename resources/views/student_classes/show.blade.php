@@ -8,8 +8,10 @@
     @php
         $_GET['student_class_id'] = ''; 
     @endphp
-        
-    <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Home Work</a><br><br>
+     {{-- {{dd($student_class)}} --}}   
+    {{-- <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Home Work</a><br><br> --}}
+
+    <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Home Work</a>
    
 
           <div class="row">
@@ -40,13 +42,16 @@
             
                     <td>
                         {{-- {{dd($student_class)}} --}}
-                        <a href="{{ url ('student_classes.editWorks', $student_class->id) }}" class="btn btn-default">
+                        {{-- <a href="{{ route ('editworks.workEdit', $student_class->id) }}" class="btn btn-default">
                             Edit
-                        </a>
+                        </a> --}}
+                        <a href="{{ route ('works.edit', $student_class->id) }}" class="btn btn-default">
+                                Edit
+                            </a>
                         {{-- {{dd($student_class)}} --}}
-                        @php
+                        {{-- @php
                         $_GET['work_id'] = ''; 
-                    @endphp
+                    @endphp --}}
                     
                         {{-- <form class="form-horizontal pull-right" action="{{ URL::route('student_classes.destroyWorks', ['id' => $student_class->id, 'work_id' => $_GET['work_id']]) }}" method="POST" >
                         {{ csrf_field() }}
@@ -55,8 +60,10 @@
                         Delete
                     </button>
                 </form> --}}
+
+
                 {{-- {{dd($student_class)}} --}}
-                <form class="form-horizontal pull-right" action="{{ URL::route('student_classes.destroy', [$student_class->id]) }}" method="POST" >
+                <form class="form-horizontal pull-right" action="{{ URL::route('works.destroy', [$student_class->id]) }}" method="POST" >
                     {{ csrf_field() }}
                 <input type="hidden" name="_method" value="DELETE"/>
                 <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">

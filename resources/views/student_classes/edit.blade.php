@@ -36,20 +36,6 @@
             </div>
         </div>
 
-        {{-- <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
-            <label for="work_id" class="col-md-4 control-label"></label>
-
-            <div class="col-md-6">
-                <input id="work_id" type="hidden" class="form-control" name="work_id" value="{{ $student_class->id}}">
-
-                @if ($errors->has('work_id'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('work_id') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div> --}}
-
         <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
             <label for="work_id" class="col-md-4 control-label"></label>
 
@@ -63,6 +49,8 @@
                 @endif
             </div>
         </div>
+
+        
        
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

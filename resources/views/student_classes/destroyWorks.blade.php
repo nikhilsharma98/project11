@@ -51,14 +51,35 @@
                  
                     <td>
                         {{-- {{dd($student_class)}} --}}
-                       
+                        {{-- <a href="{{ url ('student_classes.create', $student_class->id) }}" class="btn btn-default">
+                            Edit
+                        </a> --}}
                          {{-- <a href="{{ route ('student_classes.editWork', $student_class->work_id->id) }}" class="btn btn-default">
                             Edit
                         </a> --}}
 
-                       
-                       
-                
+                        {{-- {{dd($student_class)}} --}}
+                        {{-- @php
+                        $_GET['work_id'] = ''; 
+                    @endphp
+                     --}}
+                        {{-- <form class="form-horizontal pull-right" action="{{ URL::route('student_classes.destroyWorks', ['id' => $student_class->id, 'work_id' => $_GET['work_id']]) }}" method="POST" >
+                        {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="DELETE"/>
+                    <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">
+                        Delete
+                    </button>
+                </form> --}}
+
+                {{-- {{dd($student_class)}} --}}
+
+                {{-- <form class="form-horizontal pull-right" action="{{ URL::route('student_classes.destroy', [$student_class->id]) }}" method="POST" >
+                    {{ csrf_field() }}
+                <input type="hidden" name="_method" value="DELETE"/>
+                <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">
+                    Delete
+                </button>
+            </form> --}}
                     </td>
                                                                    
                 </tr>

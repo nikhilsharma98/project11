@@ -23,14 +23,7 @@ class WorksController extends Controller
         $this->middleware('auth');
     }
 
-    // public function getSectionStudents($id){
-    //     // $data = StudentClassStudent::with(['Student','StudentClass'])->where('student_class_id', $id)->get();
-    //     $data = Work ::with(['Student','StudentClass'])->where('title', $id)->get();
-    //     $works = Work::all();
-    //     $students = Student::all();
-    //     return view('works.index')->with('allData', $data)
-    //     ->with('Work', $Works);
-    // }
+   
 
     public function index()
     {
@@ -128,7 +121,7 @@ class WorksController extends Controller
         $works->description = $request->input('description');
         $works->student_class_id = $request->input('student_class_id');
         $works->save(); 
-        return redirect('/works/?student_class_id='.$request->input('student_class_id'))->with ('success', 'Class Updated');
+        return redirect('/student_classes/'.$request->input('student_class_id'))->with ('success', 'Class Updated');
     }
 
     /**
@@ -143,6 +136,8 @@ class WorksController extends Controller
         $works = Work::find($id);
         $works->delete();
         
+        // return redirect('/student_classes/'.$_GET['student_class_id'])->with ('success', 'Class Deleted');
         return redirect('/works/?student_class_id='.$_GET['student_class_id'])->with ('success', 'Class Deleted');
+
     }
 }

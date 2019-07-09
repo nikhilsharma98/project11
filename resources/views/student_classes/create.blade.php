@@ -31,13 +31,11 @@
                 @endif
             </div>
         </div>
-
-        {{-- <div class="form-group"> 
-            <input id="work_id" type="hidden"  name="work_id" value="{{ $_GET['work_id'] }}">        
-        </div> --}}
         <div class="form-group"> 
             <input id="work_id" type="hidden"  name="work_id" value="{{ $_GET['work_id'] }}">        
         </div>
+        
+       
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

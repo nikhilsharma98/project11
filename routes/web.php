@@ -50,6 +50,17 @@ Route::resource('works', 'WorksController');
 // Route::get('get-section-students/{id}', 'WorksController@getSectionStudents');
 
 
-Route::get('edit-works/{id}', 'StudentClassesController@editWorks');
+// Route::get('/editworks/{id}', 'StudentClassesController@editWorks')->name('editworks.workEdit');
 
-// Route::get('delete-works/{id}', 'StudentClassesController@destroyWorks');
+
+Route::get('/editworks/{id}', 'StudentClassesController@editWorks');
+// ->name('editworks.workEdit');
+
+
+Route::get('/deleteworks/{id}', 'StudentClassesController@destroyWorks');
+
+// Route::get('hello/nk', function(){
+//     echo 'hello tony';   
+// });
+
+// Route::get('/workedit/{id}','StudentClassesController@workEdit');

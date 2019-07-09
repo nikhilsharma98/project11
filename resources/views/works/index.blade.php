@@ -33,7 +33,9 @@
                 <a href="{{ route('works.edit', $work->id) }}" class="btn btn-default">
                     Edit
                 </a>
-
+                {{-- @php
+                $_GET['student_class_id'] = ''; 
+            @endphp --}}
                 <form class="form-horizontal pull-right" action="{{ URL::route('works.destroy', ['id' => $work->id, 'student_class_id' => $_GET['student_class_id']]) }}" method="POST" >
                         {{ csrf_field() }}
                     <input type="hidden" name="_method" value="DELETE"/>
