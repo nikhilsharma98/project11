@@ -5,7 +5,7 @@
 <div class="col-md-12">
         <h2>Edit Feedback</h2>
         
-        <form class="form-horizontal" action="{{ URL::route('feedbacks.update', [$feedback->id]) }}" method="POST" novalidate>
+        <form class="form-horizontal" id="form" action="{{ URL::route('feedbacks.update', [$feedback->id]) }}" method="POST" novalidate>
    
         {{ csrf_field() }}
        

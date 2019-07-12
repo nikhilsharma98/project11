@@ -5,7 +5,7 @@
 <div class="col-md-12">
         <h2>Edit School Session</h2>
         {{-- {{dd($school_session)}} --}}
-        <form class="form-horizontal" action="{{ URL::route('school_sessions.update', [$school_session->id]) }}" method="POST" novalidate>
+        <form class="form-horizontal" id="form" action="{{ URL::route('school_sessions.update', [$school_session->id]) }}" method="POST" novalidate>
    
         {{ csrf_field() }}
        

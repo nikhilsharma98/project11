@@ -5,9 +5,9 @@
 
 <div class="col-md-12">
         <h2>Classes List</h2>
-        @php
-        $_GET['work_id'] = ''; 
-    @endphp
+          @php
+          $_GET['work_id'] = ''; 
+      @endphp
     {{-- {{dd($_GET['work_id'])}} --}}
        
 

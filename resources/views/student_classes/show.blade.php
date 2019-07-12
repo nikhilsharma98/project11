@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-12">
     
-    <h2>Home Work List</h2>
+    <h2>Home Work List1</h2>
     
     @php
         $_GET['student_class_id'] = ''; 
@@ -12,13 +12,15 @@
     {{-- <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Home Work</a><br><br> --}}
 
     <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Home Work</a>
+
+    {{-- <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="" role="button"></a> --}}
    
 
           <div class="row">
                 <div class="col-sm-12"><strong>Student Class:</strong> {{ $student_class->title}}({{ $student_class->section}})</div>
-                
+                @php($_session) @endphp
           </div>
-    <table class="table table-striped">
+    <table class="table table-striped" id="form">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -36,7 +38,7 @@
            
                 <tr>
                     <td>{{ $work->id }}</td>
-                    <td><a href="{{ route('works.show', $student_class->id) }}" >{{ $work->title}}</a></td>
+                    <td><a href="{{ route('works.show', $work->id) }}" >{{ $work->title}}</a></td>
                     <td>{{ $work->description}}</td>
                     <td>{{ $work->created_at}}</td>
             
@@ -45,7 +47,7 @@
                         {{-- <a href="{{ route ('editworks.workEdit', $student_class->id) }}" class="btn btn-default">
                             Edit
                         </a> --}}
-                        <a href="{{ route ('works.edit', $student_class->id) }}" class="btn btn-default">
+                        <a href="{{ route ('works.edit', $work->id) }}" class="btn btn-default">
                                 Edit
                             </a>
                         {{-- {{dd($student_class)}} --}}
@@ -63,7 +65,7 @@
 
 
                 {{-- {{dd($student_class)}} --}}
-                <form class="form-horizontal pull-right" action="{{ URL::route('works.destroy', [$student_class->id]) }}" method="POST" >
+                <form class="form-horizontal pull-right" id="form" action="{{ URL::route('works.destroy', ['id' => $work->id, 'student_class_id' => $_GET['student_class_id']]) }}" method="POST" >
                     {{ csrf_field() }}
                 <input type="hidden" name="_method" value="DELETE"/>
                 <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">
@@ -81,4 +83,10 @@
 @endsection
 
 
- 
+{{-- <form class="form-horizontal pull-right" action="{{ URL::route('works.destroy', ['id' => $work->id, 'student_class_id' => $_GET['student_class_id']]) }}" method="POST" >
+        {{ csrf_field() }}
+    <input type="hidden" name="_method" value="DELETE"/>
+    <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">
+        Delete
+    </button>
+</form> --}}

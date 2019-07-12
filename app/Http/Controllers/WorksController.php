@@ -30,6 +30,8 @@ class WorksController extends Controller
         
         // $works = Work::with(['StudentClass'])->get();
         $works = Work::with(['StudentClass'])->get();
+        
+        // dd($works);
         // dd($works);
         return view('works.index')->with('works', $works);
         
@@ -61,10 +63,12 @@ class WorksController extends Controller
     {
         //
         // dd($request);
+        // dd($request->all());
         $works = new Work;
         $student_classes = StudentClass::all();
         $works->title = $request->input('title');
         $works->description = $request->input('description');
+        // $works->student_class_id = $request->input('student_class_id');
         $works->student_class_id = $request->input('student_class_id');
         $works->save();
 
@@ -83,13 +87,17 @@ class WorksController extends Controller
     {
         //
         $works = Work::find($id);
-
+        // $works = Work::where('id', $id)->firstOrFail();
         // dd($works);
         // dd($work->student_class()->get());
         // dd($student_class->works()->get());
         return view('works.show')->with('work', $works);
     }
-
+    // public function showArticle($slug)
+    // {
+    //     $article = News::where('slug', $slug)->firstOrFail();
+    //     return view('article', compact('article'));
+    // }
     /**
      * Show the form for editing the specified resource.
      *
@@ -116,12 +124,15 @@ class WorksController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+         // dd($request->all());
         $works = Work::find($id);
         $works->title = $request->input('title');
         $works->description = $request->input('description');
         $works->student_class_id = $request->input('student_class_id');
         $works->save(); 
         return redirect('/student_classes/'.$request->input('student_class_id'))->with ('success', 'Class Updated');
+        // return redirect('/works/?student_class_id='.$request->input('student_class_id'))->with ('success', 'Class Updated');
     }
 
     /**
@@ -132,12 +143,16 @@ class WorksController extends Controller
      */
     public function destroy($id)
     {
-        //                                      
+        // dd($id);                                     
         $works = Work::find($id);
+        // dd($works)
         $works->delete();
         
         // return redirect('/student_classes/'.$_GET['student_class_id'])->with ('success', 'Class Deleted');
-        return redirect('/works/?student_class_id='.$_GET['student_class_id'])->with ('success', 'Class Deleted');
-
+        // return redirect('/works/?student_class_id='.$_GET['student_class_id'])->with ('success', 'Class Deleted');
+        // return redirect('/student_classes/')->with ('success', 'Class Deleted');
+        // return redirect()->back();
+         return redirect('/student_classes/?student_class_id='.$_GET['student_class_id'])->with ('success', 'Class Deleted');
+         
     }
 }

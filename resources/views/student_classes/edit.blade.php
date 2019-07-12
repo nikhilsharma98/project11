@@ -4,7 +4,7 @@
 
 <div class="col-md-12">
         <h2>Edit Student</h2>
-    <form class="form-horizontal" action="{{ URL::route('student_classes.update', [$student_class->id]) }}" method="POST" novalidate>
+    <form class="form-horizontal" id="form" action="{{ URL::route('student_classes.update', [$student_class->id]) }}" method="POST" novalidate>
         {{ csrf_field() }}
        
         <input type="hidden" name="_method" value="PUT"/>
@@ -22,11 +22,14 @@
             </div>
         </div>
 
+    
+
+
         <div class="form-group{{ $errors->has('section') ? ' has-error' : '' }}">
             <label for="section" class="col-md-4 control-label">Section</label>
 
             <div class="col-md-6">
-                <input id="section" type="text" class="form-control" name="section" value="{{ $student_class->section }}" required autofocus>
+                <input id="section" type="text" class="form-control" name="section" value="{{  $student_class->section }}" required autofocus>
 
                 @if ($errors->has('section'))
                     <span class="help-block">
@@ -34,7 +37,7 @@
                     </span>
                 @endif
             </div>
-        </div>
+    </div>
 
         <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
             <label for="work_id" class="col-md-4 control-label"></label>

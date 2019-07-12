@@ -27,6 +27,7 @@ class StudentClassStudentsController extends Controller
     public function index()
     {
         $student_class_students = StudentClassStudent::with(['student_class','Student'])->get();
+        // dd($student_class_students);
         return view('student_class_students.index')->with('student_class_students', $student_class_students);
     }
 

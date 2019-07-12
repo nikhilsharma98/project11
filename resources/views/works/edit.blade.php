@@ -5,8 +5,10 @@
 <div class="col-md-12">
         <h2>Edit Home Work</h2>
         {{-- {{dd($school_session)}} --}}
-        <form class="form-horizontal" action="{{ URL::route('works.update', [$work->id]) }}" method="POST" novalidate>
+        <form class="form-horizontal" id="form" action="{{ URL::route('works.update', [$work->id]) }}" method="POST" novalidate>
    
+
+            
         {{ csrf_field() }}
        
         <input type="hidden" name="_method" value="PUT"/>
@@ -25,6 +27,8 @@
                 </div>
         </div>
 
+
+
         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
             <label for="description" class="col-md-4 control-label">Description</label>
 
@@ -37,7 +41,8 @@
                     </span>
                 @endif
             </div>
-        </div>
+    </div>
+        
 
         <div class="form-group{{ $errors->has('student_class_id') ? ' has-error' : '' }}">
             <label for="student_class_id" class="col-md-4 control-label"></label>
@@ -52,6 +57,7 @@
                 @endif
             </div>
         </div>
+
 
        <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

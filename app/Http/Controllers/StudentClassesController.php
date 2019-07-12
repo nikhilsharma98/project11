@@ -85,7 +85,8 @@ class StudentClassesController extends Controller
     {
         // dd($id);
         $student_class = StudentClass::find($id);
-        $students = Work::all();
+        // $student_class = StudentClass::where('id', $id)->firstOrFail();
+        // $students = Work::all();
         // dd($student_class->works()->get());
         // dd($student_class->get());
         // dd($student_class);
@@ -95,7 +96,7 @@ class StudentClassesController extends Controller
         return view('student_classes.show')->with('student_class', $student_class);
         // ->with('works', $work);
     }
-        
+    // $works = Work::where('id', $id)->firstOrFail();   
     /**
      * Show the form for editing the specified resource.
      *
@@ -108,7 +109,7 @@ class StudentClassesController extends Controller
     public function editWorks($id)
     {
         // dd($id);
-        $work = Work::find($id);
+        $student_class = Work::find($id);
         $students = Work::all();
         // dd($work);
         
@@ -160,21 +161,21 @@ class StudentClassesController extends Controller
     public function destroyWorks($id)
     {
         // dd($id);
-        $work = Work::find($id);
-        // dd($work);
-        $students = Work::all();
-        $work->delete();
+        // $work = Work::find($id);
+        // // dd($work);
+        // $students = Work::all();
+        // $work->delete();
+        $student_class = StudentClass::find($id);
+        $student_class->delete();
+        StudentClassStudent::where('student_class_id', $id)->delete();
         // $student_class = StudentClass::find($id);
         // $students = Work::all();
         // $works = Work::all();
         // $works = Work::->where('id', $id)->first();
         // $student_class = StudentClass::with(['Work'])->where('student_class_id', $id)->get();
-        
+    // return view('student_classes.destroyWorks')->with('student_class', $student_class);
 
-  
-    return view('student_classes.destroyWorks')->with('student_class', $student_class);
-
-    // return redirect('/student_classes/?work_id='.$_GET['work_id'])->with ('success', 'Class Deleted');
+    return redirect('/student_classes/?work_id='.$_GET['work_id'])->with ('success', 'Class Deleted');
     }
 
    
@@ -185,7 +186,8 @@ class StudentClassesController extends Controller
         $student_class = StudentClass::find($id);
         $student_class->delete();
         StudentClassStudent::where('student_class_id', $id)->delete();
-        // return redirect('/student_classes')->with ('success', 'Class Deleted');
+        // return redirect('/student_classes/')->with ('success', 'Class Deleted');
         return redirect('/student_classes/?work_id='.$_GET['work_id'])->with ('success', 'Class Deleted');
+        // return redirect('/student_classes/?work_id='.$_GET['work_id'])->with ('success', 'Class Deleted');
     }
 }
