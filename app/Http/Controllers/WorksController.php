@@ -66,6 +66,7 @@ class WorksController extends Controller
         // dd($request->all());
         $works = new Work;
         $student_classes = StudentClass::all();
+        // dd($student_classes);
         $works->title = $request->input('title');
         $works->description = $request->input('description');
         // $works->student_class_id = $request->input('student_class_id');
@@ -87,6 +88,7 @@ class WorksController extends Controller
     {
         //
         $works = Work::find($id);
+        
         // $works = Work::where('id', $id)->firstOrFail();
         // dd($works);
         // dd($work->student_class()->get());

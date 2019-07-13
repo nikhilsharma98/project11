@@ -39,7 +39,7 @@
             </div>
     </div>
 
-        <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
+        {{-- <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
             <label for="work_id" class="col-md-4 control-label"></label>
 
             <div class="col-md-6">
@@ -51,7 +51,7 @@
                     </span>
                 @endif
             </div>
-        </div>
+        </div> --}}
 
         
        

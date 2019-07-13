@@ -8,10 +8,11 @@
     @php
         $_GET['student_class_id'] = ''; 
     @endphp
-     {{-- {{dd($student_class)}} --}}   
+     {{-- {{dd($_GET['student_class_id'])}}    --}}
+     {{-- @php dd($student_class->id) @endphp --}}
     {{-- <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Home Work</a><br><br> --}}
 
-    <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Home Work</a>
+    <a href="{{ route('works.create', $student_class->id)}}" class="btn btn-success" role="button">Home Work</a>
 
     {{-- <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="" role="button"></a> --}}
    

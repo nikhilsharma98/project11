@@ -2,9 +2,9 @@
 @section('content')
 <div class="col-md-12">
     <h2>Home Work List</h2>
-    {{-- @php
+    @php
         $_GET['student_class_id'] = ''; 
-    @endphp --}}
+    @endphp
     
     {{-- {{dd($_GET['student_class_id'])}} --}}
     <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Add Home Work</a> 

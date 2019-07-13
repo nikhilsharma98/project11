@@ -25,8 +25,8 @@ class StudentClassesController extends Controller
     public function index()
     {
         //
-        // $student_classes = StudentClass::all();
-        $student_classes = StudentClass::with(['Works'])->get();
+        $student_classes = StudentClass::all();
+        // $student_classes = StudentClass::with(['Works'])->get();
             // dd($student_classes);
         return view('student_classes.index')->with('student_classes', $student_classes);
     }
@@ -40,12 +40,12 @@ class StudentClassesController extends Controller
     {
         
         // $works = Work::all();
-        $students = Work::all();
+        // $students = Work::all();
         // dd($students);
         
-        return view('student_classes.create')
+        return view('student_classes.create');
         // ->with('works', $works);
-        ->with('students', $students);
+        // ->with('students', $students);
     }
     
     /**
@@ -67,12 +67,12 @@ class StudentClassesController extends Controller
         $student_class->title = $request->input('title');
         $student_class->section = $request->input('section');
         // $student_class->work_id = $request->input('work_id');
-        $student_class->work_id = $request->input('work_id');
+        // $student_class->work_id = $request->input('work_id');
         $student_class->save();
 
-        // return redirect('/student_classes')->with ('success', 'Class created');
+        return redirect('/student_classes')->with ('success', 'Class created');
       
-        return redirect('/student_classes/?work_id='.$request->input('work_id'))->with ('success', 'Class created');
+        // return redirect('/student_classes/?work_id='.$request->input('work_id'))->with ('success', 'Class created');
     }
    
     /**
@@ -120,12 +120,12 @@ class StudentClassesController extends Controller
     {
         // dd($id);
         $student_class = StudentClass::find($id);
-        $students = Work::all();
+        // $students = Work::all();
         // $works = Work::all();
         // dd($students);
-        return view('student_classes.edit')->with('student_class', $student_class)
+        return view('student_classes.edit')->with('student_class', $student_class);
         // ->with('work', $works);
-        ->with('students', $students);
+        // ->with('students', $students);
     }
    
    
@@ -146,10 +146,10 @@ class StudentClassesController extends Controller
         $student_class = StudentClass::find($id);
         $student_class->title = $request->input('title');
         $student_class->section = $request->input('section');
-        $student_class->work_id = $request->input('work_id');
+        // $student_class->work_id = $request->input('work_id');
         $student_class->save();
-        // return redirect('/student_classes')->with ('success', 'Class Updated');
-        return redirect('/student_classes/?work_id='.$request->input('work_id'))->with ('success', 'Class Updated');
+        return redirect('/student_classes')->with ('success', 'Class Updated');
+        // return redirect('/student_classes/?work_id='.$request->input('work_id'))->with ('success', 'Class Updated');
     }
    
     /**
@@ -187,7 +187,8 @@ class StudentClassesController extends Controller
         $student_class->delete();
         StudentClassStudent::where('student_class_id', $id)->delete();
         // return redirect('/student_classes/')->with ('success', 'Class Deleted');
-        return redirect('/student_classes/?work_id='.$_GET['work_id'])->with ('success', 'Class Deleted');
         // return redirect('/student_classes/?work_id='.$_GET['work_id'])->with ('success', 'Class Deleted');
+        // return redirect('/student_classes/?work_id='.$_GET['work_id'])->with ('success', 'Class Deleted');
+        return redirect('/student_classes')->with ('success', 'Class Deleted');
     }
 }
