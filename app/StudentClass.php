@@ -17,7 +17,7 @@ class StudentClass extends Model
 
     public function students()
     {
-        return $this->hasMany('App\Student');
+        return $this->belongsTo('App\Student');
     }
     public function student_class_students()
     {

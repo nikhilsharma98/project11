@@ -8,6 +8,7 @@ use App\Student;
 use App\Countary;
 use App\State;
 use App\Work;
+use App\StudentClass;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -31,9 +32,12 @@ class StudentsController extends Controller
 
     public function index()
     {
-        // $works = Work::with(['StudentClass'])->get();
+        // $students = Student::with(['StudentClass'])->get();
         // $students = Student::with(['Work'])->get();
         $students = Student::all();
+        // $students = Student::with(['student_class','Student'])->get();
+        // dd($students);
+        // dd($students);
         // $students = Student::latest()->limit(1)->get();
         return view('students.index')->with('students', $students);
         
@@ -66,6 +70,7 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all())  ;
         // dd($request->input('photo'));
         //
         $this->validate ($request,[
@@ -134,12 +139,14 @@ class StudentsController extends Controller
     {
         //
         // dd($id);
-        $students = Student::find($id);
-        dd($students);
+        // dd($id);
+        // $students = Student::find($id);
+        // dd($students);
         $students = Work::latest()->limit(10)->get();
         // $Works = Work::find($id);
         // dd($Work);
-        return view('students.show')->with('students', $students);
+        return view('students.show')->with('students', $students)
+        ->with('works', $works);
     }
 
     /**

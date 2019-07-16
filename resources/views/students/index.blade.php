@@ -28,15 +28,16 @@
       </tr>
     </thead>
     <tbody>
-         
+       {{-- {{dd($students)}}   --}}
     @foreach ($students  as $student)
     @php
-    $currentClass = $studentClass = '';
+    $currentClass = $studentClass = $student->id;
     if ($student->student_class_students()->exists()) {
         $studentClass = $student->student_class_students()->get()->last()->student_class;
         $currentClass = $studentClass['title'] ." ". $studentClass['section'];
+        
     }
-    // <td><a href="{{ route('student_classes.show', $student_class->id) }}" >{{ $student_class->title }}</a></td>
+
     @endphp
         <tr>
             <td><a href="{{ route('works.index', $student->id) }}" >{{ $student->id }}</a></td>
@@ -51,13 +52,17 @@
             <td>{{ $student->photo }}</td>
             <td>{{ $student->gender }}</td>
             <td>{{ $student->address }}</td>
-            <td>{{ $currentClass }}
+            <td>{{ $currentClass}}</td>
+            {{-- <td>{{ $currentClass->student_classes->title }}
+                    {{ $currentClass->student_classes->section }}</td> --}}
+         
             <td>{{ $student->city }}</td>
             <td>{{ $student->state->name }}</td>
             <td>{{ $student->countary->name }}</td>
             
             <td>
-
+                
+                
                 
 
                 <a href="{{ route('students.edit', $student->id) }}" class="btn btn-default">
@@ -72,15 +77,7 @@
                     </button>
                     
                 </form>
-                  
-                    {{-- <a href="{{ route('student_class_students.index', ["student_id"=> $student->id ]) }}" class="btn btn-default" >
-                        Class Details
-                    </a> 
-                      
-                    <a href="{{ route('feedbacks.create', ["feedback"=> $student->id ]) }}" class="btn btn-default" >
-                        feedback
-                    </a>  --}}
-                
+            
                     
                 
             </td>

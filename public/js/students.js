@@ -68,7 +68,7 @@ $(document).ready(function(){
                     required: "Father Name is Required",
                 },
                 mother_name:{
-                    required: "MOther Name is Required",
+                    required: "Mother Name is Required",
                 },
                 aadhar_id: {
                     required: "Aadhar Id is Required",
