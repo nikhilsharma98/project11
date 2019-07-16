@@ -4,19 +4,18 @@
 <div class="col-md-12">
     
     <h2>Home Work List1</h2>
-    
-    @php
+    {{-- 'works/create/{student_class_id} --}}
+    {{-- @php
         $_GET['student_class_id'] = ''; 
-    @endphp
-     {{-- {{dd($_GET['student_class_id'])}}    --}}
-     {{-- @php dd($student_class->id) @endphp --}}
+    @endphp --}}
+     {{-- {{dd($student_class)}} --}}   
     {{-- <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Home Work</a><br><br> --}}
-
-    <a href="{{ route('works.create', $student_class->id)}}" class="btn btn-success" role="button">Home Work</a>
-
+{{-- @php  dd('okay') @endphp --}}
+    <a href=" {{ url('works/create/' . $student_class->id)}}" class="btn btn-success" role="button">Home Work</a>
+{{-- @php  dd($student_class);  @endphp --}}
     {{-- <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="" role="button"></a> --}}
    
-
+ {{-- @php dd($student_class) @endphp --}}
           <div class="row">
                 <div class="col-sm-12"><strong>Student Class:</strong> {{ $student_class->title}}({{ $student_class->section}})</div>
                 @php($_session) @endphp
@@ -66,7 +65,7 @@
 
 
                 {{-- {{dd($student_class)}} --}}
-                <form class="form-horizontal pull-right" id="form" action="{{ URL::route('works.destroy', ['id' => $work->id, 'student_class_id' => $_GET['student_class_id']]) }}" method="POST" >
+                <form class="form-horizontal pull-right" id="form" action="{{ URL::route('works.destroy', [$work->id]) }}" method="POST" >
                     {{ csrf_field() }}
                 <input type="hidden" name="_method" value="DELETE"/>
                 <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">

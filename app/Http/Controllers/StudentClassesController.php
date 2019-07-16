@@ -106,15 +106,15 @@ class StudentClassesController extends Controller
 
 
    
-    public function editWorks($id)
-    {
-        // dd($id);
-        $student_class = Work::find($id);
-        $students = Work::all();
-        // dd($work);
+    // public function editWorks($id)
+    // {
+    //     // dd($id);
+    //     $student_class = Work::find($id);
+    //     $students = Work::all();
+    //     // dd($work);
         
-        return view('student_classes.editWorks')->with('student_class', $student_class);
-    }
+    //     return view('student_classes.editWorks')->with('student_class', $student_class);
+    // }
 
     public function edit($id)
     {
@@ -158,25 +158,25 @@ class StudentClassesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroyWorks($id)
-    {
-        // dd($id);
-        // $work = Work::find($id);
-        // // dd($work);
-        // $students = Work::all();
-        // $work->delete();
-        $student_class = StudentClass::find($id);
-        $student_class->delete();
-        StudentClassStudent::where('student_class_id', $id)->delete();
-        // $student_class = StudentClass::find($id);
-        // $students = Work::all();
-        // $works = Work::all();
-        // $works = Work::->where('id', $id)->first();
-        // $student_class = StudentClass::with(['Work'])->where('student_class_id', $id)->get();
-    // return view('student_classes.destroyWorks')->with('student_class', $student_class);
+    // public function destroyWorks($id)
+    // {
+    //     // dd($id);
+    //     // $work = Work::find($id);
+    //     // // dd($work);
+    //     // $students = Work::all();
+    //     // $work->delete();
+    //     $student_class = StudentClass::find($id);
+    //     $student_class->delete();
+    //     StudentClassStudent::where('student_class_id', $id)->delete();
+    //     // $student_class = StudentClass::find($id);
+    //     // $students = Work::all();
+    //     // $works = Work::all();
+    //     // $works = Work::->where('id', $id)->first();
+    //     // $student_class = StudentClass::with(['Work'])->where('student_class_id', $id)->get();
+    // // return view('student_classes.destroyWorks')->with('student_class', $student_class);
 
-    return redirect('/student_classes/?work_id='.$_GET['work_id'])->with ('success', 'Class Deleted');
-    }
+    // return redirect('/student_classes/?work_id='.$_GET['work_id'])->with ('success', 'Class Deleted');
+    // }
 
    
 

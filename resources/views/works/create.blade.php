@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-12">
     <h2>Create Home Work</h2>
-    <form class="form-horizontal" id="form"  method="POST" action="{{ route('works.store') }}"  novalidate>
+    <form class="form-horizontal" id="works"  method="POST" action="{{ route('works.store') }}"  novalidate>
         {{ csrf_field() }}
 
   
@@ -35,10 +35,12 @@
             </div>
         </div>
 
-        <div class="form-group"> 
+        {{-- <div class="form-group"> 
             <input id="student_class_id" type="hidden"  name="student_class_id" value="{{ $_GET['student_class_id'] }}">        
+        </div> --}}
+        <div class="form-group"> 
+            <input type="hidden"  name="student_class_id" value="{{$student_class_id}}">        
         </div>
-        
        
 
         <div class="form-group">

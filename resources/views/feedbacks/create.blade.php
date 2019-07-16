@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-12">
     <h2>Create Feedback</h2>
-    <form class="form-horizontal" id="form"  method="POST" action="{{ route('feedbacks.store') }}"  novalidate>
+    <form class="form-horizontal" id="feedbacks"  method="POST" action="{{ route('feedbacks.store') }}"  novalidate>
         {{ csrf_field() }}
 
   

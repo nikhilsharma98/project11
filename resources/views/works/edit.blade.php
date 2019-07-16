@@ -5,7 +5,7 @@
 <div class="col-md-12">
         <h2>Edit Home Work</h2>
         {{-- {{dd($school_session)}} --}}
-        <form class="form-horizontal" id="form" action="{{ URL::route('works.update', [$work->id]) }}" method="POST" novalidate>
+        <form class="form-horizontal" id="works" action="{{ URL::route('works.update', [$work->id]) }}" method="POST" novalidate>
    
 
             
@@ -44,7 +44,7 @@
     </div>
         
 
-        <div class="form-group{{ $errors->has('student_class_id') ? ' has-error' : '' }}">
+        {{-- <div class="form-group{{ $errors->has('student_class_id') ? ' has-error' : '' }}">
             <label for="student_class_id" class="col-md-4 control-label"></label>
 
             <div class="col-md-6">
@@ -56,7 +56,7 @@
                     </span>
                 @endif
             </div>
-        </div>
+        </div> --}}
 
 
        <div class="form-group">

@@ -26,5 +26,10 @@ class Work extends Model
     // {
     //     return $this->belongsTO('App\StudentClassStudent');
     // }
+
+    public function Student()
+    {
+        return $this->belongsTo('App\Student');
+    }
     
 }

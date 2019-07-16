@@ -37,6 +37,14 @@
     <script src="{{ asset('js/additional-methods.min.js') }}"></script>
     <script src="{{ asset('js/validation.js') }}"></script>
     <script src="{{ asset('js/valid.js') }}"></script>
+    <script src="{{ asset('js/feedbacks.js') }}"></script>
+    <script src="{{ asset('js/guardians.js') }}"></script>
+    <script src="{{ asset('js/school_session.js') }}"></script>
+    <script src="{{ asset('js/school.js') }}"></script>
+    <script src="{{ asset('js/student_class_students.js') }}"></script>
+    <script src="{{ asset('js/students_classes.js') }}"></script>
+    <script src="{{ asset('js/students.js') }}"></script>
+    <script src="{{ asset('js/works.js') }}"></script>
     
     
 </body>

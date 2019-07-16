@@ -4,7 +4,7 @@
 
 <div class="col-md-12">
         <h2>Edit Student</h2>
-    <form class="form-horizontal" action="{{ URL::route('schools.update', [$school->id]) }}" method="POST" novalidate>
+    <form class="form-horizontal" id="school" action="{{ URL::route('schools.update', [$school->id]) }}" method="POST" novalidate>
         {{ csrf_field() }}
         
         <input type="hidden" name="_method" value="PUT"/>

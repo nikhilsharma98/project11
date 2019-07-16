@@ -45,16 +45,18 @@ Route::resource('feedbacks', 'FeedbacksController');
 
 // Route::resource('feed_backs', 'FeedBacksController');
 
-Route::resource('works', 'WorksController');
+Route::resource('works', 'WorksController')-> except(['create']);
+
+Route::get('works/create/{student_class_id}','WorksController@create');
 
 // Route::get('get-section-students/{id}', 'WorksController@getSectionStudents');
 
 
-// Route::get('/editworks/{id}', 'StudentClassesController@editWorks')->name('editworks.workEdit');
+Route::get('/editworks/{id}', 'StudentClassesController@editWorks')->name('editworks.workEdit');
 
 
-Route::get('/editworks/{id}', 'StudentClassesController@editWorks');
-// ->name('editworks.workEdit');
+Route::get('/editworks/{id}', 'StudentClassesController@editWorks')
+->name('editworks.workEdit');
 
 
 Route::get('/deleteworks/{id}', 'StudentClassesController@destroyWorks');

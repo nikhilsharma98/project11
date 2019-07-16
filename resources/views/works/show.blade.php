@@ -6,11 +6,11 @@
     
     {{-- <h2>Home Work List</h2> --}}
     
-        @php
+        {{-- @php
             $_GET['student_class_id'] = ''; 
-        @endphp
+        @endphp --}}
     
-    <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="" role="button"></a>
+        <a href="" class="" role="button"></a>
      
     {{-- <table class="table table-striped"> --}}
         <thead>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-12">
     <h2>Create Class</h2>
-    <form class="form-horizontal" id="form" method="POST" action="{{ route('student_classes.store') }}" >
+    <form class="form-horizontal" id="form" method="POST" action="{{ route('student_classes.store') }}" novalidate>
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">

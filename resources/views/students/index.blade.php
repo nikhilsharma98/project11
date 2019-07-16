@@ -36,10 +36,10 @@
         $studentClass = $student->student_class_students()->get()->last()->student_class;
         $currentClass = $studentClass['title'] ." ". $studentClass['section'];
     }
-
+    // <td><a href="{{ route('student_classes.show', $student_class->id) }}" >{{ $student_class->title }}</a></td>
     @endphp
         <tr>
-            <td>{{ $student->id }}</td>
+            <td><a href="{{ route('works.index', $student->id) }}" >{{ $student->id }}</a></td>
             <td>{{ $student->first_name }}</td>
             <td>{{ $student->last_name }}</td>
             <td>{{ $student->email }}</td>

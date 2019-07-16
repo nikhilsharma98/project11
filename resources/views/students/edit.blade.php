@@ -15,7 +15,7 @@
             Guardian
         </a>
 
-    <form class="form-horizontal" id="form" action="{{ URL::route('students.update', [$student->id]) }}" method="POST" enctype="multipart/form-data" novalidate>
+    <form class="form-horizontal" id="students" action="{{ URL::route('students.update', [$student->id]) }}" method="POST" enctype="multipart/form-data" novalidate>
         {{ csrf_field() }}
        
         <input type="hidden" name="_method" value="PUT"/>

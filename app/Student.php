@@ -46,6 +46,11 @@ class Student extends Model
     {
         return $this->belongsTo('App\Feedbacks');
     }
+
+    public function works()
+    {
+        return $this->hasMany('App\Work');
+    }
     
 }
 

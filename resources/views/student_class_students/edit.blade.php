@@ -4,7 +4,7 @@
 
 <div class="col-md-12">
         <h2>Edit Student</h2>
-    <form class="form-horizontal" form="id" id="form" action="{{ URL::route('student_class_students.update', [$student_class_student->id]) }}" method="POST" enctype="multipart/form-data" novalidate>
+    <form class="form-horizontal"  id="student_class_students" action="{{ URL::route('student_class_students.update', [$student_class_student->id]) }}" method="POST" enctype="multipart/form-data" novalidate>
         {{ csrf_field() }}
        
         <input type="hidden" name="_method" value="PUT"/>

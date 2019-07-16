@@ -12,7 +12,7 @@ class StudentClass extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'section', 'work_id'
+        'title', 'section'
     ];
 
     public function students()

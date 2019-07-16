@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-12">
     <h2>Create Guardian</h2>
-    <form class="form-horizontal"  id="form" method="POST" action="{{ route('guardians.store') }}" enctype="multipart/form-data" novalidate>
+    <form class="form-horizontal"  id="guardians" method="POST" action="{{ route('guardians.store') }}" enctype="multipart/form-data" novalidate>
         {{ csrf_field() }}
 
        
