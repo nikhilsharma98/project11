@@ -9,7 +9,7 @@
           $_GET['work_id'] = ''; 
       @endphp
     {{-- {{dd($_GET['work_id'])}} --}}
-       
+   
 
         <a href="{{ route('student_classes.create')}}" class="btn btn-success" role="button">Create Class</a> 
  
@@ -23,7 +23,7 @@
         <th scope="col">Actions</th>
       </tr>
     </thead>
-  <tbody>
+  <tbody> 
           
      @foreach ($student_classes as $student_class)
         <tr>

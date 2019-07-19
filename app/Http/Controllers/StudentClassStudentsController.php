@@ -28,6 +28,9 @@ class StudentClassStudentsController extends Controller
     {
         $student_class_students = StudentClassStudent::with(['student_class','Student'])->get();
         // dd($student_class_students);
+        // echo '<pre>';
+        // print_r($student_class_students);
+        // die();
         return view('student_class_students.index')->with('student_class_students', $student_class_students);
     }
 

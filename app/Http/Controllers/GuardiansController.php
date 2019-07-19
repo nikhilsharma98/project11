@@ -26,7 +26,7 @@ class GuardiansController extends Controller
     public function index()
     {
         $guardians = Guardian::with(['Student'])->get();
-        // $student_class_students = StudentClassStudent::with(['student_class','Student'])->get();
+       
         return view('guardians.index')->with('guardians', $guardians);
         
 
@@ -201,7 +201,7 @@ class GuardiansController extends Controller
     {
         $guardians = Guardian::find($id);
         $guardians->delete();
-        // return redirect('/student_class_students/?student_id='.$_GET['student_id'])->with('success', 'Class Deleted');
+       
         return redirect('/guardians/?student_id='.$_GET['student_id'])->with('success', 'Class Deleted');
     }
 }

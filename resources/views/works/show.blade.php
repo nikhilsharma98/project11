@@ -12,15 +12,9 @@
     
         <a href="" class="" role="button"></a>
      
-    {{-- <table class="table table-striped"> --}}
+    
         <thead>
-            {{-- <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Date</th>
-                         
-            </tr> --}}
+            
           
            
             <div class="row">

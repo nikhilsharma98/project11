@@ -9,7 +9,8 @@ use App\Countary;
 use App\State;
 use App\Work;
 use App\StudentClass;
-use Illuminate\Support\Facades\Storage;
+use App\StudentClassStudent;
+// use Illuminate\Support\Facades\Storage;
 
 
 class StudentsController extends Controller
@@ -32,11 +33,18 @@ class StudentsController extends Controller
 
     public function index()
     {
-        // $students = Student::with(['StudentClass'])->get();
+        // $students = Student::with(['StudentClassStudent'])->get();
         // $students = Student::with(['Work'])->get();
-        $students = Student::all();
+        // $students = Student::all();
+        $students = Student::with(['student_class'])->get();
+        
+        // echo '<pre>';
+        // print_r($students);
+        // die();
+        
         // $students = Student::with(['student_class','Student'])->get();
-        // dd($students);
+    // dd($students); 
+          
         // dd($students);
         // $students = Student::latest()->limit(1)->get();
         return view('students.index')->with('students', $students);
@@ -55,11 +63,16 @@ class StudentsController extends Controller
         $student_class_students = Work::all();
         $states = State::all();
         $countries = Countary::all();
+        $student_classes = StudentClass::all();
+        $student_class = StudentClass::all();
+        $student_classes = StudentClassStudent::all();
         // dd($countries);
          return view('students.create')
          ->with('states', $states)
          ->with('countries', $countries)
-         ->with('students', $students);
+         ->with('students', $students)
+         ->with('student_class', $student_class)
+         ->with('student_class_students', $student_class_students);
     }
 
     /**
@@ -162,13 +175,17 @@ class StudentsController extends Controller
         $students = Student::find($id); 
         $countries = Countary::all();
         $states = State::all();
+        // $student_classes = StudentClass::all();
+        $student_class = StudentClass::all();
+        $student_classes = StudentClassStudent::all();
         // dd($states->all());
         
 
         return view('students.edit')
         ->with('student', $students)
         ->with('countries', $countries)
-        ->with('states', $states);
+        ->with('states', $states)
+        ->with('student_class', $student_class);
         
     }
 

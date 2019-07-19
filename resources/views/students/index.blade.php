@@ -5,6 +5,8 @@
 <div class="col-md-12" >
         <h2>Student  List</h2>
     
+        
+   
         <a href="{{ route('students.create')}}" class="btn btn-success" role="button">Add Student</a>
 <table class="table table-striped">
     <thead>
@@ -29,15 +31,19 @@
     </thead>
     <tbody>
        {{-- {{dd($students)}}   --}}
+     
+       
+       
     @foreach ($students  as $student)
+        {{-- {{dd($students)}} --}}
     @php
-    $currentClass = $studentClass = $student->id;
-    if ($student->student_class_students()->exists()) {
+    // $student_class = '';
+    $currentClass = $studentClass = $student->StudentClassStudent;
+    if ($student->student_class_students()->exists()) { 
         $studentClass = $student->student_class_students()->get()->last()->student_class;
         $currentClass = $studentClass['title'] ." ". $studentClass['section'];
         
     }
-
     @endphp
         <tr>
             <td><a href="{{ route('works.index', $student->id) }}" >{{ $student->id }}</a></td>
@@ -52,10 +58,12 @@
             <td>{{ $student->photo }}</td>
             <td>{{ $student->gender }}</td>
             <td>{{ $student->address }}</td>
-            <td>{{ $currentClass}}</td>
-            {{-- <td>{{ $currentClass->student_classes->title }}
-                    {{ $currentClass->student_classes->section }}</td> --}}
-         
+            <td>{{ $currentClass }}</td>
+            {{-- <td>
+                @foreach ($student->student_class as $student_class)
+                    {{ $student_class->title }}{{ $student_class->section }}
+                @endforeach 
+            </td> --}}
             <td>{{ $student->city }}</td>
             <td>{{ $student->state->name }}</td>
             <td>{{ $student->countary->name }}</td>

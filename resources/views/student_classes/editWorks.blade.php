@@ -5,12 +5,12 @@
     
     <h2>Home Work List</h2>
     
-    @php
+    {{-- @php
         $_GET['student_class_id'] = ''; 
-    @endphp
+    @endphp --}}
      {{-- {{dd($student_class)}} --}}   
     {{-- <a href="{{ route('works.create')}}" class="btn btn-success" role="button">Home Work</a> --}}
-    <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Home Work</a>
+    {{-- <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Home Work</a> --}}
 
           {{-- <div class="row">
                 <div class="col-sm-12"><strong>Student Class:</strong> {{ $student_class->title}}({{ $student_class->section}})</div>
@@ -41,7 +41,7 @@
             
                     <td> --}}
                         {{-- @php dd($works) @endphp --}}
-                @foreach ($works->get()  as $work)
+                {{-- @foreach ($works->get()  as $work)
                 <tr>
                     <td>{{ $work->id }}</td>
                     <td>{{ $work->title}}</td>
@@ -49,7 +49,7 @@
                     <td>{{ $work->created_at}}</td>
                  
                  
-                    <td>
+                    <td> --}}
                         {{-- {{dd($student_class)}} --}}
                        
                          {{-- <a href="{{ route ('student_classes.editWork', $student_class->work_id->id) }}" class="btn btn-default">

@@ -20,7 +20,7 @@ class Student extends Model
 
     public function student_class()
     {
-        return $this->belongsTo('App\StudentClass');
+        return $this->hasMany('App\StudentClassStudent');
     }
     public function state()
     {
@@ -36,7 +36,7 @@ class Student extends Model
     }
     public function student_class_students()
     {
-        return $this->belongsTo('App\StudentClassStudent');
+        return $this->hasMany('App\StudentClassStudent');
     }
     public function guardians()
     {

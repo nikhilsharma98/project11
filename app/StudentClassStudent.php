@@ -26,10 +26,10 @@ class StudentClassStudent extends Model
     // {
     //     return $this->belongsTo('App\Guardian');
     // }
-    public function StudentClass()
-    {
-        return $this->belongsTo('App\StudentClass');
-    }
+    // public function StudentClass()
+    // {
+    //     return $this->belongsTo('App\StudentClass');
+    // }
     // public function work()
     // {
     //     return $this->belongsTo('App\Work');

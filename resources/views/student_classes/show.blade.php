@@ -4,18 +4,14 @@
 <div class="col-md-12">
     
     <h2>Home Work List1</h2>
-    {{-- 'works/create/{student_class_id} --}}
+    
     {{-- @php
         $_GET['student_class_id'] = ''; 
     @endphp --}}
-     {{-- {{dd($student_class)}} --}}   
-    {{-- <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Home Work</a><br><br> --}}
-{{-- @php  dd('okay') @endphp --}}
+    
+
     <a href=" {{ url('works/create/' . $student_class->id)}}" class="btn btn-success" role="button">Home Work</a>
-{{-- @php  dd($student_class);  @endphp --}}
-    {{-- <a href="{{ route('works.create', ['student_class_id' => $_GET['student_class_id']])}}" class="" role="button"></a> --}}
-   
- {{-- @php dd($student_class) @endphp --}}
+
           <div class="row">
                 <div class="col-sm-12"><strong>Student Class:</strong> {{ $student_class->title}}({{ $student_class->section}})</div>
                 @php($_session) @endphp
@@ -50,10 +46,7 @@
                         <a href="{{ route ('works.edit', $work->id) }}" class="btn btn-default">
                                 Edit
                             </a>
-                        {{-- {{dd($student_class)}} --}}
-                        {{-- @php
-                        $_GET['work_id'] = ''; 
-                    @endphp --}}
+                     
                     
                         {{-- <form class="form-horizontal pull-right" action="{{ URL::route('student_classes.destroyWorks', ['id' => $student_class->id, 'work_id' => $_GET['work_id']]) }}" method="POST" >
                         {{ csrf_field() }}
@@ -83,10 +76,3 @@
 @endsection
 
 
-{{-- <form class="form-horizontal pull-right" action="{{ URL::route('works.destroy', ['id' => $work->id, 'student_class_id' => $_GET['student_class_id']]) }}" method="POST" >
-        {{ csrf_field() }}
-    <input type="hidden" name="_method" value="DELETE"/>
-    <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">
-        Delete
-    </button>
-</form> --}}

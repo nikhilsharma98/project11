@@ -17,11 +17,11 @@ class StudentClass extends Model
 
     public function students()
     {
-        return $this->belongsTo('App\Student');
+        return $this->belongsTo('App\StudentClassStudent');
     }
     public function student_class_students()
     {
-        return $this->belongsTo('App\StudentClassStudent');
+        return $this->belongsToMany('App\StudentClassStudent');
     }
     public function works()
     {

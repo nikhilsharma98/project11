@@ -24,7 +24,7 @@ class FeedbacksController extends Controller
     public function index()
     {
         $feedbacks = Feedback::with(['Student'])->get();
-        // $student_class_students = StudentClassStudent::with(['student_class','Student'])->get();
+      
         return view('feedbacks.index')->with('feedbacks', $feedbacks);
         
     }

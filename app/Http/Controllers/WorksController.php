@@ -27,10 +27,6 @@ class WorksController extends Controller
 
     public function index()
     {
-        // $schoolSessions = SchoolSession::all();
-        
-        // $works = Work::with(['StudentClass'])->get();
-        // $works = Work::with(['StudentClass'])->get();
         $works = Work::all();
         $works = Work::latest()->limit(10)->get();
         // dd($works);
@@ -72,8 +68,6 @@ class WorksController extends Controller
         $works->title = $request->input('title');
         $works->description = $request->input('description');
         $works->student_class_id =  $request->input('student_class_id');
-        // $works->student_class_id = $request->input('student_class_id');
-        // $works->student_class_id = $request->input('student_class_id');
         $works->save();
         return redirect('/works')->with ('success', 'Class created');
         // return redirect('/works/?student_class_id='.$request->input('student_class_id'))->with ('success', 'Class created');
@@ -98,11 +92,7 @@ class WorksController extends Controller
         // dd($student_class->works()->get());
         return view('works.show')->with('work', $works);
     }
-    // public function showArticle($slug)
-    // {
-    //     $article = News::where('slug', $slug)->firstOrFail();
-    //     return view('article', compact('article'));
-    // }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -131,14 +121,14 @@ class WorksController extends Controller
     {
 
          // dd($request->all());
-        //  dd($request)->all();
+        
         $works = Work::find($id);
         $works->title = $request->input('title');
         $works->description = $request->input('description');
-        // $works->student_class_id = $request->input('student_class_id');
+        
         $works->save(); 
         // return redirect('/student_classes/'.$request->input('student_class_id'))->with ('success', 'Class Updated');
-        // return redirect('/works/?student_class_id='.$request->input('student_class_id'))->with ('success', 'Class Updated');
+       
         return redirect('/student_classes/1')->with ('success', 'Class Updated');
     }
 
@@ -156,10 +146,10 @@ class WorksController extends Controller
         $works->delete();
         
         // return redirect('/student_classes/'.$_GET['student_class_id'])->with ('success', 'Class Deleted');
-        // return redirect('/works/?student_class_id='.$_GET['student_class_id'])->with ('success', 'Class Deleted');
+      
         // return redirect('/student_classes/')->with ('success', 'Class Deleted');
         // return redirect()->back();
-        //  return redirect('/student_classes/?student_class_id='.$_GET['student_class_id'])->with ('success', 'Class Deleted');
+        
         return redirect('/student_classes/1')->with ('success', 'Class Deleted');
     }
 }

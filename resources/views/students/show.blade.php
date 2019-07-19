@@ -5,9 +5,9 @@
     {{-- @php
         $_GET['student_class_id'] = ''; 
     @endphp --}}
-    {{-- @php  dd($works) @endphp --}}
-    {{-- {{dd($_GET['student_class_id'])}} --}}
-    {{-- @php dd($works) @endphp --}}
+    
+    
+    
     <a href="" class="btn btn-success" role="button">Add Home Work</a> 
     
     <table class="table table-striped">
