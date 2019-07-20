@@ -55,9 +55,9 @@
                                         Works
                                     </a>
                             
-                                {{-- <a href="{{ route('feedbacks.index')}}" >
-                                    Feedback
-                                </a> --}}
+                                <a href="{{ route('teachers.index')}}" >
+                                    Teachers
+                                </a>
                                
                                 {{-- <a href="{{ route('guardians.index')}}" >
                                     Guardians

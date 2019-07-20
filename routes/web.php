@@ -66,3 +66,5 @@ Route::get('/deleteworks/{id}', 'StudentClassesController@destroyWorks');
 // });
 
 // Route::get('/workedit/{id}','StudentClassesController@workEdit');
+
+Route::resource('teachers', 'TeachersController');

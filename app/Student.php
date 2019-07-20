@@ -51,6 +51,10 @@ class Student extends Model
     {
         return $this->hasMany('App\Work');
     }
+    public function Student()
+    {
+        return $this->belongsTo('App\Student');
+    }
     
 }
 
