@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('student_classes', 'StudentClassesController');
+Route::get('student_classes/create/{teacher_id}','StudentClassesController@create');
 
 Route::resource('students', 'StudentsController');
 

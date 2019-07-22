@@ -5,7 +5,9 @@
 <div class="col-md-12" >
         <h2>Teacher  List</h2>
     
-        
+        @php
+        $_GET['student_class_id'] = ''; 
+    @endphp
    
         <a href="{{ route('teachers.create')}}" class="btn btn-success" role="button">Add Teacher</a>
 <table class="table table-striped">

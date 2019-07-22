@@ -16,11 +16,11 @@
       </tr>
     </thead>
     <tbody>
-        @php   
-            // echo '<pre>';
-            //     print_r($student_class_students)->;
-            //     die();
-        @endphp
+        {{-- @php   
+            echo '<pre>';
+                print_r($student_class_students)->;
+                die();
+        @endphp --}}
          {{-- {{dd($student_class_students)}} --}}
         @php
         if(!empty($student_class_students)){

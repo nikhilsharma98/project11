@@ -12,16 +12,16 @@ class StudentClass extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'section'
+        'title', 'section', 'teacher_id'
     ];
-
+    
     public function students()
     {
         return $this->belongsTo('App\StudentClassStudent');
     }
     public function student_class_students()
     {
-        return $this->belongsToMany('App\StudentClassStudent');
+        return $this->hasMany('App\StudentClassStudent');
     }
     public function works()
     {

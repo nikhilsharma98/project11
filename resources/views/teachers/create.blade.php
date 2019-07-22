@@ -135,6 +135,10 @@
                 </div>
         </div>
 
+        <div class="form-group"> 
+                <input id="student_class_id" type="hidden"  name="student_class_id" value="{{ $_GET['student_class_id'] }}">        
+            </div>
+
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

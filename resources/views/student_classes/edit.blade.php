@@ -3,7 +3,11 @@
 @section('content')
 
 <div class="col-md-12">
-        <h2>Edit Student</h2>
+        <h2>Edit Student</h2> 
+        
+        <a href="{{ route('teachers.index', ["student_class_id"=> $student_class->id ]) }}" class="btn btn-default" >
+                Student Classes
+            </a>
     <form class="form-horizontal" id="form" action="{{ URL::route('student_classes.update', [$student_class->id]) }}" method="POST" novalidate>
         {{ csrf_field() }}
        
@@ -51,7 +55,19 @@
             </div>
         </div>
 
-        
+        {{-- <div class="form-group{{ $errors->has('teacher_id') ? ' has-error' : '' }}">
+            <label for="teacher_id" class="col-md-4 control-label"></label>
+
+            <div class="col-md-6">
+                <input id="teacher_id" type="hidden" class="form-control" name="teacher_id" value="{{ $student_class->id}}">
+
+                @if ($errors->has('teacher_id'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('teacher_id') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div> --}}
        
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

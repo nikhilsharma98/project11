@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Teacher;
+use App\StudentClass;
 
 class TeachersController extends Controller
 {
@@ -15,7 +16,8 @@ class TeachersController extends Controller
     public function index()
     {
         //
-        $teachers = Teacher::all();
+        $teachers = Teacher::with(['StudentClass'])->get();
+        // $student_class = StudentClass::with(['Teacher'])->get();
         return view('teachers.index')->with('teachers', $teachers);
     }
 
@@ -27,7 +29,9 @@ class TeachersController extends Controller
     public function create()
     {
         //
-        return view('teachers.create');
+        $student_classes = StudentClass::all();
+        return view('teachers.create')
+        ->with('student_classes', $student_classes);
     }
 
     /**
@@ -48,10 +52,12 @@ class TeachersController extends Controller
         $teachers->aadhar_id = $request->input('aadhar_id');
         $teachers->dob = $request->input('dob');
         $teachers->gender = $request->input('gender');
-        $teachers->address = $request->input('address');  
+        $teachers->address = $request->input('address'); 
+        $teachers->student_class_id = $request->input('student_class_id'); 
         $teachers->save();
 
-        return redirect('/teachers')->with ('success', 'Class created');
+        // return redirect('/teachers')->with ('success', 'Class created');
+        return redirect('/teachers/?student_class_id='.$request->input('student_class_id'))->with ('success', 'Class created');
     }
 
     /**
@@ -76,8 +82,10 @@ class TeachersController extends Controller
         //
         // dd($id);
         $teacher = Teacher::find($id);
+        $student_classes = StudentClass::all();
         // dd($teacher);
-        return view('teachers.edit')->with('teacher', $teacher);
+        return view('teachers.edit')->with('teacher', $teacher)
+        ->with('student_classes', $student_classes);
 
         
     }
@@ -101,10 +109,11 @@ class TeachersController extends Controller
         $teachers->aadhar_id = $request->input('aadhar_id');
         $teachers->dob = $request->input('dob');
         $teachers->gender = $request->input('gender');
-        $teachers->address = $request->input('address');  
+        $teachers->address = $request->input('address');
+        $teachers->student_class_id = $request->input('student_class_id');  
         $teachers->save();
-        return redirect('/teachers')->with ('success', 'Class Updated');
-        
+        // return redirect('/teachers')->with ('success', 'Class Updated');
+        return redirect('/teachers/?student_class_id='.$request->input('student_class_id'))->with ('success', 'Class Updated');
        
     }
    
@@ -120,6 +129,7 @@ class TeachersController extends Controller
         //
         $teachers = Teacher::find($id);
         $teachers->delete();
-        return redirect('/teachers')->with ('success', 'Class Deleted');
+        // return redirect('/teachers')->with ('success', 'Class Deleted');
+        return redirect('/teachers/?student_class_id='.$_GET['student_class_id'])->with('success', 'Class Deleted');
     }
 }

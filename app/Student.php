@@ -53,7 +53,7 @@ class Student extends Model
     }
     public function Student()
     {
-        return $this->belongsTo('App\Student');
+        return $this->hasMany('App\Student');
     }
     
 }

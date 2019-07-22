@@ -14,10 +14,10 @@ class Teacher extends Model
 
     public function StudentClass()
     {
-        return $this->hasMany('App\StudentClass');
+        return $this->belongsTo('App\StudentClass');
     }
     public function Student()
     {
-        return $this->hasMany('App\Student');
+        return $this->belongsTo('App\Student');
     }
 }
