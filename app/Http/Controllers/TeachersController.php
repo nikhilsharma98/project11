@@ -17,7 +17,8 @@ class TeachersController extends Controller
     {
         //
         $teachers = Teacher::with(['StudentClass'])->get();
-        // $student_class = StudentClass::with(['Teacher'])->get();
+        // dd($teachers);
+        // $teachers = Teacher::all();
         return view('teachers.index')->with('teachers', $teachers);
     }
 

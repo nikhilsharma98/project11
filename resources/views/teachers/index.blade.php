@@ -9,7 +9,9 @@
         $_GET['student_class_id'] = ''; 
     @endphp
    
-        <a href="{{ route('teachers.create')}}" class="btn btn-success" role="button">Add Teacher</a>
+        <a href="{{ route('teachers.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Add Teacher</a> 
+       
+        {{-- <a href="{{ route('teachers.create')}}" class="btn btn-success" role="button">Add Teacher</a> --}}
 <table class="table table-striped">
     <thead>
       <tr>

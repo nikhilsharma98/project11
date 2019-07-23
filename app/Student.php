@@ -51,9 +51,9 @@ class Student extends Model
     {
         return $this->hasMany('App\Work');
     }
-    public function Student()
+    public function Teacher()
     {
-        return $this->hasMany('App\Student');
+        return $this->hasMany('App\Teacher');
     }
     
 }

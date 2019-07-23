@@ -5,7 +5,7 @@
 <div class="col-md-12">
         <h2>Edit Teacher</h2>
         <a href="{{ route('student_classes.index', ["teacher_id"=>$teacher->id ]) }}" class="btn btn-default">
-                Teachers            
+                Student Classes            
         </a>
     <form class="form-horizontal" id="students" action="{{ URL::route('teachers.update', [$teacher->id]) }}" method="POST" enctype="multipart/form-data" novalidate>
         {{ csrf_field() }}
@@ -138,19 +138,20 @@
                 </div>
         </div>
 
-        <div class="form-group{{ $errors->has('student_class_id') ? ' has-error' : '' }}">
-                <label for="student_class_id" class="col-md-4 control-label"></label>
-    
-                <div class="col-md-6">
-                    <input id="student_class_id" type="hidden" class="form-control" name="student_class_id" value="{{ $teacher->id}}">
-    
-                    @if ($errors->has('student_class_id'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('student_class_id') }}</strong>
-                        </span>
-                    @endif
-                </div>
+       
+        <div class="form-group{{ $errors->has('teacher_id') ? ' has-error' : '' }}">
+            <label for="teacher_id" class="col-md-4 control-label"></label>
+
+            <div class="col-md-6">
+                <input id="teacher_id" type="hidden" class="form-control" name="teacher_id" value="{{ $student_class->id}}">
+
+                @if ($errors->has('teacher_id'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('teacher_id') }}</strong>
+                    </span>
+                @endif
             </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
@@ -162,6 +163,7 @@
     </form>
 </div>
 @endsection
+
 
 
 
