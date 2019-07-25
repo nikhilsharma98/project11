@@ -28,7 +28,7 @@ class WorksController extends Controller
     public function index()
     {
         $works = Work::all();
-        $works = Work::latest()->limit(10)->get();
+        // $works = Work::latest()->limit(10)->get();
         // dd($works);
         // dd($works);
         return view('works.index')->with('works', $works);

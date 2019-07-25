@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-12">
     
-    <h2>Home Work List1</h2>
+    <h2>Home Work List</h2>
     
     {{-- @php
         $_GET['student_class_id'] = ''; 
@@ -15,7 +15,13 @@
           <div class="row">
                 <div class="col-sm-12"><strong>Student Class:</strong> {{ $student_class->title}}({{ $student_class->section}})</div>
                 @php($_session) @endphp
+                {{-- {{dd($student_class)}} --}}
           </div>
+          <div class="row">
+            {{-- <div class="col-sm-12"><strong>Student Class:</strong> {{ $student_class->teacher->first_name}}({{ $student_class->teacher->last_name}}) --}}
+            </div>
+            @php($_session) @endphp
+      </div>
     <table class="table table-striped" id="form">
         <thead>
             <tr>

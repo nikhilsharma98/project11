@@ -91,12 +91,15 @@ class StudentClassesController extends Controller
      */
     public function show($id)
     {
+        // $student_class = StudentClass::with(['Teacher'])->get();
         // dd($id);
         $student_class = StudentClass::find($id);
+        // $teachers = Teacher::find($id);
+        // dd($student_class);
         // $student_class = StudentClass::where('id', $id)->firstOrFail();
         
         return view('student_classes.show')->with('student_class', $student_class);
-        // ->with('works', $work);
+        // ->with('teachers', $teachers);
     }
     // $works = Work::where('id', $id)->firstOrFail();   
     /**

@@ -31,5 +31,10 @@ class Work extends Model
     {
         return $this->belongsTo('App\Student');
     }
+
+    public function Teacher()
+    {
+        return $this->belonsTo('App\Teacher');
+    }
     
 }

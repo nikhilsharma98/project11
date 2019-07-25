@@ -5,12 +5,12 @@
 
 <div class="col-md-12">
        <h2>Classes List</h2>
-        {{-- @php $student_class = $student_classes @endphp --}}
-{{-- @php  $student_class = 'student_class'  @endphp --}}
+        
+
           @php
           $_GET['teacher_id'] = ''; 
       @endphp
-    {{-- {{dd($_GET['teacher_id'])}} --}}
+    
    
 
         <a href="{{ route('student_classes.create', ['teacher_id' => $_GET['teacher_id']])}}" class="btn btn-success" role="button">Create Class</a> 
@@ -20,7 +20,7 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Teacher Name</th>
+        {{-- <th scope="col">Teacher Name</th> --}}
         <th scope="col">Class Title</th>
         <th scope="col">Class Section</th>
         <th scope="col">Actions</th>
@@ -38,8 +38,8 @@
             
             
             <td>{{ $student_class->id }}</td>
-            <td>{{ $student_class->teacher->first_name }}
-                {{ $student_class->teacher->last_name }}</td>
+            {{-- <td>{{ $student_class->teacher->first_name }}
+                {{ $student_class->teacher->last_name }}</td> --}}
 
             <td><a href="{{ route('student_classes.show', $student_class->id) }}" >{{ $student_class->title }}</a></td>
          
@@ -53,7 +53,7 @@
                         {{ csrf_field() }}
                     <input type="hidden" name="_method" value="DELETE"/>
                     <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">
-                        Delete
+                        Delete  
                     </button>
                 </form>
 {{-- 

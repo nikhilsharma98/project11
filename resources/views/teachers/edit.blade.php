@@ -139,19 +139,33 @@
         </div>
 
        
-        <div class="form-group{{ $errors->has('teacher_id') ? ' has-error' : '' }}">
-            <label for="teacher_id" class="col-md-4 control-label"></label>
+        <div class="form-group{{ $errors->has('student_class_id') ? ' has-error' : '' }}">
+            <label for="student_class_id" class="col-md-4 control-label"></label>
 
             <div class="col-md-6">
-                <input id="teacher_id" type="hidden" class="form-control" name="teacher_id" value="{{ $student_class->id}}">
+                <input id="student_class_id" type="hidden" class="form-control" name="student_class_id" value="{{ $teacher->id}}">
 
-                @if ($errors->has('teacher_id'))
+                @if ($errors->has('student_class_id'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('teacher_id') }}</strong>
+                        <strong>{{ $errors->first('student_class_id') }}</strong>
                     </span>
                 @endif
             </div>
         </div>
+
+        {{-- <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
+                <label for="work_id" class="col-md-4 control-label"></label>
+    
+                <div class="col-md-6">
+                    <input id="work_id" type="hidden" class="form-control" name="work_id" value="{{ $teacher->id}}">
+    
+                    @if ($errors->has('work_id'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('work_id') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div> --}}
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

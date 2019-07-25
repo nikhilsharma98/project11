@@ -41,6 +41,10 @@
         <div class="form-group"> 
             <input type="hidden"  name="student_class_id" value="{{$student_class_id}}">        
         </div>
+
+        {{-- <div class="form-group"> 
+            <input type="hidden"  name="teacher_id" value="{{$teacher_id}}">        
+        </div> --}}
        
 
         <div class="form-group">

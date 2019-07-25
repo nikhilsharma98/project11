@@ -11,7 +11,7 @@ class Teacher extends Model
         'first_name', 'last_name', 'email', 'age', 'experience', 'aadhar_id', 'dob', 'gender', 'address', 'student_class_id'
         
     ];
-
+    
     public function StudentClass()
     {
         return $this->belongsTo('App\StudentClass');
@@ -19,5 +19,10 @@ class Teacher extends Model
     public function Student()
     {
         return $this->belongsTo('App\Student');
+    }
+
+    public function works()
+    {
+        return $this->hasMany('App\Work');
     }
 }
