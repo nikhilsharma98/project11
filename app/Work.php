@@ -8,7 +8,7 @@ class Work extends Model
 {
     //
     protected $fillable = [
-        'title', 'description', 'student_class_id'
+        'title', 'description', 'student_class_id', 'teacher_id'
     ];
     
   
@@ -34,7 +34,7 @@ class Work extends Model
 
     public function Teacher()
     {
-        return $this->belonsTo('App\Teacher');
+        return $this->hasMany('App\Teacher');
     }
     
 }

@@ -18,6 +18,7 @@ class TeachersController extends Controller
         //
         $teachers = Teacher::with(['StudentClass'])->get();
         // dd($teachers);
+        // dd($teachers);
         // $teachers = Teacher::all();
         return view('teachers.index')->with('teachers', $teachers);
     }
@@ -47,6 +48,7 @@ class TeachersController extends Controller
         $teachers= new Teacher;
         $teachers->first_name = $request->input('first_name');
         $teachers->last_name = $request->input('last_name');
+        $teachers->student_class = $request->input('student_class');
         $teachers->email = $request->input('email');
         $teachers->age = $request->input('age');
         $teachers->experience = $request->input('experience');
@@ -70,6 +72,8 @@ class TeachersController extends Controller
     public function show($id)
     {
         //
+        $teachers = Teacher::find($id);
+        return view('teachers.show')->with('teachers', $teachers);
     }
 
     /**
@@ -101,9 +105,11 @@ class TeachersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // dd($request->all());
         $teachers = Teacher::find($id);
         $teachers->first_name = $request->input('first_name');
         $teachers->last_name = $request->input('last_name');
+        $teachers->student_class = $request->input('student_class');
         $teachers->email = $request->input('email');
         $teachers->age = $request->input('age');
         $teachers->experience = $request->input('experience');

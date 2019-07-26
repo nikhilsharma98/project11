@@ -34,6 +34,33 @@
                 </div>
         </div>
 
+
+
+
+        <div class="form-group{{ $errors->has('student_class') ? ' has-error' : '' }}">
+            <label for="student_class" class="col-md-4 control-label">Student Class</label>
+
+            <div class="col-md-6">
+                {{-- <input id="student_class" type="text" class="form-control" name="student_class" value="{{ old('student_class') }}" required autofocus> --}}
+
+                <select name="student_class" >
+                            
+                    <option value="">----Select-----</option>
+                    @foreach($student_classes as $student_class)
+                    {{-- {{ dd($student_class)}} --}}
+                        <option value="{{$student_class->id}}">{{$student_class->title}} {{$student_class->section}}</option>
+                        {{-- {{ dd($student_class)}} --}}
+                    @endforeach
+                </select>
+
+                @if ($errors->has('student_class'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('student_class') }}</strong>
+                    </span>
+                @endif
+            </div>
+    </div>
+
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label for="email" class="col-md-4 control-label">Email</label>
     

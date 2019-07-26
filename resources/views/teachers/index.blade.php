@@ -5,9 +5,9 @@
 <div class="col-md-12" >
         <h2>Teacher  List</h2>
     
-        @php
+        {{-- @php
         $_GET['student_class_id'] = ''; 
-    @endphp
+    @endphp --}}
    
         <a href="{{ route('teachers.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Add Teacher</a> 
        
@@ -16,8 +16,10 @@
     <thead>
       <tr>
           <th scope="col">#</th>
+          {{-- <th scope="col">Class</th> --}}
           <th scope="col">First Name</th>
           <th scope="col">Last Name</th>
+          <th scope="col">Student Class</th>
           <th scope="col">Email</th>
           <th scope="col">Age</th>
           <th scope="col">Experience</th>
@@ -33,11 +35,27 @@
        
        
     @foreach ($teachers  as $teacher)
-        {{-- {{dd($teachers)}} --}}
+        {{-- {{dd($teacher)}} --}}
         <tr>
             <td>{{ $teacher->id }}</a></td>
+         
+                 {{-- <td>
+                @foreach ($teacher->student_class as $student_class)
+                    {{ $student_class->title }}{{ $student_class->section }}
+                @endforeach 
+            </td> --}}
+{{-- 
+
+            <td>{{ $student_class_student->student_class->title}} 
+                {{ $student_class_student->student_class->section}}</td> --}}
+
+
+
             <td>{{ $teacher->first_name }}</td>
             <td>{{ $teacher->last_name }}</td>
+            {{-- <td>{{ $teacher->student_class }}</td> --}}
+            <td>{{ $teacher->StudentClass->title}}
+                {{ $teacher->StudentClass->section}}</td>
             <td>{{ $teacher->email }}</td>
             <td>{{ $teacher->age }}</td>
             <td>{{ $teacher->experience }}</td>

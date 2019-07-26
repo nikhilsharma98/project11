@@ -5,9 +5,9 @@
 <div class="col-md-12">
         <h2>Edit Student</h2> 
         
-        {{-- <a href="{{ route('teachers.index', ["student_class_id"=> $student_class->id ]) }}" class="btn btn-default" >
+        <a href="{{ route('teachers.index', ["student_class_id"=> $student_class->id ]) }}" class="btn btn-default" >
                 Teachers
-            </a> --}}
+            </a>
     <form class="form-horizontal" id="form" action="{{ URL::route('student_classes.update', [$student_class->id]) }}" method="POST" novalidate>
         {{ csrf_field() }}
        

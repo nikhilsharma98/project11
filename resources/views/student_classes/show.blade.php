@@ -17,6 +17,17 @@
                 @php($_session) @endphp
                 {{-- {{dd($student_class)}} --}}
           </div>
+          {{-- <div class="row">
+            <td><div><strong>Teacher Name:</strong>
+                @foreach ($student_class->teacher as $teacher)
+                    ({{ $teacher->first_name }}{{ $teacher->last_name }})
+                @endforeach 
+            </div>
+            </td>
+            @php($_session) @endphp
+            {{dd($student_class)}}
+      </div> --}}
+
           <div class="row">
             {{-- <div class="col-sm-12"><strong>Student Class:</strong> {{ $student_class->teacher->first_name}}({{ $student_class->teacher->last_name}}) --}}
             </div>
@@ -29,6 +40,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Description</th>
                 <th scope="col">Date</th>
+                {{-- <th scope="col">Teacher Name</th> --}}
                                        
             </tr>
            
@@ -43,7 +55,11 @@
                     <td><a href="{{ route('works.show', $work->id) }}" >{{ $work->title}}</a></td>
                     <td>{{ $work->description}}</td>
                     <td>{{ $work->created_at}}</td>
-            
+                     {{-- <td>
+                @foreach ($student_class->teacher as $teacher)
+                    {{ $teacher->first_name }}{{ $teacher->last_name }}
+                @endforeach 
+            </td> --}}
                     <td>
                         {{-- {{dd($student_class)}} --}}
                         {{-- <a href="{{ route ('editworks.workEdit', $student_class->id) }}" class="btn btn-default">
