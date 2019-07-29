@@ -128,7 +128,7 @@ class WorksController extends Controller
         
         $works->save(); 
         // return redirect('/student_classes/'.$request->input('student_class_id'))->with ('success', 'Class Updated');
-       
+        // return redirect('teachers/'.$request->input('student_class_id'));
         return redirect('/student_classes/1')->with ('success', 'Class Updated');
     }
 

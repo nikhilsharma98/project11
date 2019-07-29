@@ -1,9 +1,6 @@
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Teacher extends Model
 {
     //
@@ -20,9 +17,12 @@ class Teacher extends Model
     {
         return $this->belongsTo('App\Student');
     }
-
     public function works()
     {
         return $this->belongsTo('App\Work');
     }
+    // public function TeacherStudentClass()
+    // {
+    //     return $this->belongsToMany('App\TeacherStudentClass');
+    // }
 }

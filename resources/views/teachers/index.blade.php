@@ -19,7 +19,7 @@
           {{-- <th scope="col">Class</th> --}}
           <th scope="col">First Name</th>
           <th scope="col">Last Name</th>
-          <th scope="col">Student Class</th>
+          {{-- <th scope="col">Student Class</th> --}}
           <th scope="col">Email</th>
           <th scope="col">Age</th>
           <th scope="col">Experience</th>
@@ -51,11 +51,11 @@
 
 
 
-            <td>{{ $teacher->first_name }}</td>
+            <td><a href="{{ route('teachers.show', $teacher->id) }}" >{{ $teacher->first_name }}</a></td>
             <td>{{ $teacher->last_name }}</td>
             {{-- <td>{{ $teacher->student_class }}</td> --}}
-            <td>{{ $teacher->StudentClass->title}}
-                {{ $teacher->StudentClass->section}}</td>
+            {{-- <td>{{ $teacher->StudentClass->title}}
+                {{ $teacher->StudentClass->section}}</td> --}}
             <td>{{ $teacher->email }}</td>
             <td>{{ $teacher->age }}</td>
             <td>{{ $teacher->experience }}</td>

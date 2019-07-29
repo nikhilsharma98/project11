@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Teacher;
 use App\StudentClass;
+use App\TeacherStudentClass;
 
 class TeachersController extends Controller
 {
@@ -36,6 +37,33 @@ class TeachersController extends Controller
         ->with('student_classes', $student_classes);
     }
 
+    public function createStudentClass(Request $request, $teacher_id)
+    {
+        
+        //
+        // dd($request->all());
+        // dd($teacher_id);
+        $student_classes = StudentClass::all();
+        $teachers = Teacher::all();
+        return view('teachers.createstudentclass')
+        ->with('student_classes', $student_classes)
+        ->with('teacher_id', $teacher_id);
+    }
+
+    public function storeStudentClass(Request $request)
+    {
+        // dd($request->all());
+        // foreach($request->input('student_class_ids) as $student_class_id) {
+            $data = new TeacherStudentClass;
+            $data->teacher_id = $request->input('teacher_id');
+            $data->student_class_id = $request->input('student_class_id');
+            $data->save();
+        // }
+            return redirect('teachers/'.$request->input('student_class_id'));
+    }
+
+   
+
     /**
      * Store a newly created resource in storage.
      *
@@ -48,7 +76,7 @@ class TeachersController extends Controller
         $teachers= new Teacher;
         $teachers->first_name = $request->input('first_name');
         $teachers->last_name = $request->input('last_name');
-        $teachers->student_class = $request->input('student_class');
+        // $teachers->student_class = $request->input('student_class');
         $teachers->email = $request->input('email');
         $teachers->age = $request->input('age');
         $teachers->experience = $request->input('experience');
@@ -57,6 +85,7 @@ class TeachersController extends Controller
         $teachers->gender = $request->input('gender');
         $teachers->address = $request->input('address'); 
         $teachers->student_class_id = $request->input('student_class_id'); 
+        // $teachers->student_class_id = $request->input('teacher_id'); 
         $teachers->save();
 
         // return redirect('/teachers')->with ('success', 'Class created');
@@ -69,11 +98,13 @@ class TeachersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($teacher_id)
     {
         //
-        $teachers = Teacher::find($id);
-        return view('teachers.show')->with('teachers', $teachers);
+        // dd($teacher_id);    
+        $teacher = Teacher::find($teacher_id);
+        // dd($teacher);
+        return view('teachers.show')->with('teacher', $teacher);
     }
 
     /**
@@ -109,7 +140,7 @@ class TeachersController extends Controller
         $teachers = Teacher::find($id);
         $teachers->first_name = $request->input('first_name');
         $teachers->last_name = $request->input('last_name');
-        $teachers->student_class = $request->input('student_class');
+        // $teachers->student_class = $request->input('student_class');
         $teachers->email = $request->input('email');
         $teachers->age = $request->input('age');
         $teachers->experience = $request->input('experience');
@@ -140,3 +171,5 @@ class TeachersController extends Controller
         return redirect('/teachers/?student_class_id='.$_GET['student_class_id'])->with('success', 'Class Deleted');
     }
 }
+
+

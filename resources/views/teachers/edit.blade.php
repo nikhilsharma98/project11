@@ -40,7 +40,7 @@
         </div>
 
 
-        <div class="form-group{{ $errors->has('student_class') ? ' has-error' : '' }}">
+        {{-- <div class="form-group{{ $errors->has('student_class') ? ' has-error' : '' }}">
             <label for="student_class" class="col-md-4 control-label">Student Class</label>
 
             <div class="col-md-6">
@@ -59,7 +59,7 @@
                     </span>
                 @endif
             </div>
-    </div>
+    </div> --}}
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label for="email" class="col-md-4 control-label">Email</label>
@@ -161,7 +161,7 @@
         </div>
 
        
-        <div class="form-group{{ $errors->has('student_class_id') ? ' has-error' : '' }}">
+        {{-- <div class="form-group{{ $errors->has('student_class_id') ? ' has-error' : '' }}">
             <label for="student_class_id" class="col-md-4 control-label"></label>
 
             <div class="col-md-6">
@@ -173,7 +173,7 @@
                     </span>
                 @endif
             </div>
-        </div>
+        </div> --}}
 
         {{-- <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
                 <label for="work_id" class="col-md-4 control-label"></label>

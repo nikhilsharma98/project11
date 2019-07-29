@@ -69,3 +69,6 @@ Route::get('/deleteworks/{id}', 'StudentClassesController@destroyWorks');
 // Route::get('/workedit/{id}','StudentClassesController@workEdit');
 
 Route::resource('teachers', 'TeachersController');
+
+Route::get('/teachers/create/{id}', 'TeachersController@createStudentClass');
+Route::post('/teachers/storestudentclass', 'TeachersController@storeStudentClass');

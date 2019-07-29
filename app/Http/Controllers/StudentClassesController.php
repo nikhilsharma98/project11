@@ -26,6 +26,7 @@ class StudentClassesController extends Controller
     public function index()
     {
         //
+        $student_class = StudentClass::find(1);
         // $student_class = StudentClass::all();
         // $student_class = StudentClass::with(['Teacher'])->get();
         $student_class = StudentClass::with(['Teacher'])->get();

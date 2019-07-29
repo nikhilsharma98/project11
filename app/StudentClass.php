@@ -31,5 +31,9 @@ class StudentClass extends Model
     {
         return $this->hasMany('App\Teacher');
     }
+    // public function TeacherStudentClass()
+    // {
+    //     return $this->belongsToMany('App\TeacherStudentClass');
+    // }
 
 }

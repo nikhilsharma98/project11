@@ -6,9 +6,9 @@
 <div class="col-md-12">
        <h2>Classes List</h2>
   
-            @php
-            $_GET['teacher_id'] = ''; 
-        @endphp
+              @php
+              $_GET['teacher_id'] = ''; 
+          @endphp
         <a href="{{ route('student_classes.create', ['teacher_id' => $_GET['teacher_id']])}}" class="btn btn-success" role="button">Create Class</a> 
  
         
