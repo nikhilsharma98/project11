@@ -10,15 +10,15 @@ class StudentClassStudent extends Model
         'student_class_id', 'student_id', 'school_session_id'
     ];
 
-    public function student_class()
-    {
+    public function studentClass()
+    {   
         return $this->belongsTo('App\StudentClass');
     }
-    public function Student()
+    public function student()
     {
         return $this->belongsTo('App\Student');
     }
-    public function school_session()
+    public function schoolSession()
     {
         return $this->belongsTo('App\SchoolSession');
     }

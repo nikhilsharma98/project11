@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-12">
     <h2>Create Session</h2>
-    <form class="form-horizontal" id="student_class_students"  method="POST" action="{{ url('teachers/storestudentclass') }}"  novalidate>
+    <form class="form-horizontal" id="teachers"  method="POST" action="{{ url('teachers/storestudentclass') }}"  novalidate>
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('student_class') ? ' has-error' : '' }}">
@@ -11,7 +11,7 @@
     
                 <div class="col-md-6">
                  
-                    <select name="student_class_ids">
+                    <select name="student_class_id">
                             
                         <option value="">----Select-----</option>
                         @foreach($student_classes as $student_class)

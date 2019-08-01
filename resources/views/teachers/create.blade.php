@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-12">
     <h2>Create Teacher</h2>
-    <form class="form-horizontal" id="students" method="POST" action="{{ route('teachers.store') }}" enctype="multipart/form-data" novalidate>
+    <form class="form-horizontal" id="teachers" method="POST" action="{{ route('teachers.store') }}" enctype="multipart/form-data" novalidate>
         {{ csrf_field() }}
 
          <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">

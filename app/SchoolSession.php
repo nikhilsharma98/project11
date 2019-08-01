@@ -12,7 +12,7 @@ class schoolSession extends Model
         
     ];
 
-    public function student_class_students()
+    public function studentclassstudents()
     {
         return $this->hasMany('App\StudentClassStudent');
     }

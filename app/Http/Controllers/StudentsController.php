@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use App\Student;
-use App\Countary;
-use App\State;
 use App\Work;
+use App\State;
+use App\Student;
+use App\Teacher;
+use App\Countary;
 use App\StudentClass;
 use App\StudentClassStudent;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 // use Illuminate\Support\Facades\Storage;
 
 
@@ -33,18 +34,13 @@ class StudentsController extends Controller
 
     public function index()
     {
-        // $students = Student::with(['StudentClassStudent'])->get();
-        // $students = Student::with(['Work'])->get();
+       
         // $students = Student::all();
-        $students = Student::with(['student_class'])->get();
+        $students = Student::with(['studentClass'])->get();
         
         // echo '<pre>';
         // print_r($students);
-        // die();
-        
-        // $students = Student::with(['student_class','Student'])->get();
-    // dd($students); 
-          
+        // die(); 
         // dd($students);
         // $students = Student::latest()->limit(1)->get();
         return view('students.index')->with('students', $students);
@@ -59,6 +55,7 @@ class StudentsController extends Controller
     public function create()
     {
         //
+        $teachers = Teacher::all();
         $students = Student::all();
         $student_class_students = Work::all();
         $states = State::all();
@@ -72,7 +69,8 @@ class StudentsController extends Controller
          ->with('countries', $countries)
          ->with('students', $students)
          ->with('student_class', $student_class)
-         ->with('student_class_students', $student_class_students);
+         ->with('student_class_students', $student_class_students)
+         ->with('teachers', $teachers);
     }
 
     /**
@@ -135,11 +133,12 @@ class StudentsController extends Controller
           $students->address = $request->input('address');
           $students->city = $request->input('city');
           $students->state_id = $request->input('state_id');
-          $students->countary_id = $request->input('countary_id');  
+          $students->countary_id = $request->input('countary_id'); 
+          $students->teacher_id = $request->input('teacher_id'); 
           $students->save();
   
-          return redirect('/students')->with ('success', 'Class created');
-        
+        //   return redirect('/students')->with ('success', 'Class created');
+        return redirect('/students/?teacher_id='.$request->input('teacher_id'))->with ('success', 'Class created');
     }
 
     /**
@@ -171,7 +170,7 @@ class StudentsController extends Controller
     public function edit($id)
     {
         //
-
+        $teachers = Teacher::all();
         $students = Student::find($id); 
         $countries = Countary::all();
         $states = State::all();
@@ -185,7 +184,8 @@ class StudentsController extends Controller
         ->with('student', $students)
         ->with('countries', $countries)
         ->with('states', $states)
-        ->with('student_class', $student_class);
+        ->with('student_class', $student_class)
+        ->with('teachers', $teachers);
         
     }
 
@@ -243,6 +243,7 @@ class StudentsController extends Controller
           $students->city = $request->input('city');
           $students->state_id = $request->input('state_id');
           $students->countary_id = $request->input('countary_id');
+          $students->teacher_id = $request->input('teacher_id');
 
           if($request->hasfile('photo')){
                 $students->photo = $imageName;
@@ -250,7 +251,9 @@ class StudentsController extends Controller
             
           $students->save();
         
-        return redirect('/students')->with ('success', 'Class Updated');
+        // return redirect('/students')->with ('success', 'Class Updated');
+        return redirect('/students/?teacher_id='.$request->input('teacher_id'))->with ('success', 'Class Updated');
+
     }
 
     /**
@@ -264,7 +267,8 @@ class StudentsController extends Controller
         //
         $students = Student::find($id);
         $students->delete();
-        return redirect('/students')->with ('success', 'Class Deleted');
+        // return redirect('/students')->with ('success', 'Class Deleted');
+        return redirect('/students/?teacher_id='.$_GET['teacher_id'])->with('success', 'Class Deleted');
     }
 }
 

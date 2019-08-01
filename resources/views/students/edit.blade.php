@@ -14,6 +14,9 @@
         <a href="{{ route('guardians.index', ["student_id"=> $student->id ]) }}" class="btn btn-default" >
             Guardian
         </a>
+        {{-- <a href="{{ route('teachers.index', ["student_id"=> $student->id ]) }}" class="btn btn-default" >
+            Teacher
+        </a> --}}
 
 
         
@@ -235,6 +238,20 @@
                         </span>
                     @endif
                 </div>
+        </div>
+
+        <div class="form-group{{ $errors->has('teacher_id') ? ' has-error' : '' }}">
+            <label for="teacher_id" class="col-md-4 control-label"></label>
+
+            <div class="col-md-6">
+                <input id="teacher_id" type="hidden" class="form-control" name="teacher_id" value="{{ $student->id}}">
+
+                @if ($errors->has('teacher_id'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('teacher_id') }}</strong>
+                    </span>
+                @endif
+            </div>
         </div>
 
        

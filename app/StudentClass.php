@@ -19,7 +19,7 @@ class StudentClass extends Model
     {
         return $this->belongsTo('App\StudentClassStudent');
     }
-    public function student_class_students()
+    public function studentClassstudents()
     {
         return $this->hasMany('App\StudentClassStudent');
     }
@@ -27,13 +27,13 @@ class StudentClass extends Model
     {
         return $this->hasMany('App\Work');
     }
-    public function Teacher()
+    public function teacher()
     {
-        return $this->hasMany('App\Teacher');
+        return $this->belongsTo('App\Teacher');
     }
-    // public function TeacherStudentClass()
-    // {
-    //     return $this->belongsToMany('App\TeacherStudentClass');
-    // }
+    public function teacherStudentclass()
+    {
+        return $this->hasMany('App\TeacherStudentClass');
+    }
 
 }

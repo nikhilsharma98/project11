@@ -31,6 +31,9 @@ $(document).ready(function(){
                 required: true,
 
             },
+            student_class_id: {
+                required: true,
+            },
             address: {
                 required: true,
             }
@@ -61,6 +64,9 @@ $(document).ready(function(){
                 },
                 gender:{
                     required: "Gender is Required",
+                },
+                student_class_id:{
+                    required: "Student Class is Required",
                 },
                 address: {
                     required: "Address is Required",

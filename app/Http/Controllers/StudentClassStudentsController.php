@@ -26,7 +26,7 @@ class StudentClassStudentsController extends Controller
      
     public function index()
     {
-        $student_class_students = StudentClassStudent::with(['student_class','Student'])->get();
+        $student_class_students = StudentClassStudent::with(['studentClass','Student'])->get();
         // dd($student_class_students);
         // echo '<pre>';
         // print_r($student_class_students);
@@ -104,6 +104,7 @@ class StudentClassStudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $student_class_students = StudentClassStudent::find($id);
         $student_class_students->student_class_id = $request->input('student_class');
         $student_class_students->student_id = $request->input('student_id');

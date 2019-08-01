@@ -27,12 +27,12 @@ class Work extends Model
     //     return $this->belongsTO('App\StudentClassStudent');
     // }
 
-    public function Student()
+    public function student()
     {
         return $this->belongsTo('App\Student');
     }
 
-    public function Teacher()
+    public function teacher()
     {
         return $this->hasMany('App\Teacher');
     }

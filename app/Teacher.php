@@ -9,20 +9,25 @@ class Teacher extends Model
         
     ];
     
-    public function StudentClass()
+    public function studentClass()
     {
-        return $this->belongsTo('App\StudentClass');
+        return $this->hasMany('App\StudentClass');
     }
-    public function Student()
-    {
-        return $this->belongsTo('App\Student');
-    }
+    // public function student()
+    // { 
+    //     return $this->hasMany('App\Student');
+    // } 
     public function works()
     {
         return $this->belongsTo('App\Work');
     }
-    // public function TeacherStudentClass()
-    // {
-    //     return $this->belongsToMany('App\TeacherStudentClass');
-    // }
+    public function teacherStudentclass()
+    {
+        return $this->hasMany('App\TeacherStudentClass');
+    }
 }
+
+
+
+
+

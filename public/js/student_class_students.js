@@ -6,9 +6,9 @@ $(document).ready(function(){
             student_class: {
                 required: true,
             },
-            // student_class_id: {
-            //     required: true,
-            // },
+            student_class_id: {
+                required: true,
+            },
             student_id	: {
                 required: true,
 
@@ -23,9 +23,9 @@ $(document).ready(function(){
                 student_class:{
                     required: "Student Class is Required",
                 },
-                // student_class_id:{
-                //     required: "Student Class ID is Required",
-                // },
+                student_class_id:{
+                    required: "Student Class is Required",
+                },
                 student_id	:{
                     required: "Student Id Is Required",
                 },

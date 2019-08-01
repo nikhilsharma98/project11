@@ -17,7 +17,7 @@ class Guardian extends Model
     //     return $this->belongsTo('App\Student', 'student_id');
     // }
 
-    public function Student()
+    public function student()
     {
         return $this->belongsTo('App\Student');
     }

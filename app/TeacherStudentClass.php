@@ -12,16 +12,16 @@ class TeacherStudentClass extends Model
         
     ];
 
+    
+    public function studentClass()
+    {
+        return $this->belongsTo('App\StudentClass');
+    }
 
-    // public function student_class()
-    // {
-    //     return $this->belongsToMany('App\StudentClass');
-    // }
-
-    // public function Teacher()
-    // {
-    //     return $this->belongsToMany('App\Teacher');
-    // }
+    public function teacher()
+    {
+        return $this->belongsTo('App\Teacher');
+    }
 
 
   

@@ -216,6 +216,14 @@
                 </div>
         </div>
 
+         {{-- <div class="form-group"> 
+            <input type="hidden"  name="teacher_id" value="{{$teacher_id}}">        
+        </div> --}}
+
+        <div class="form-group"> 
+            <input id="teacher_id" type="hidden"  name="teacher_id" value="{{ $_GET['teacher_id'] }}">        
+        </div>
+
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
                 <button type="submit" class="btn btn-primary">

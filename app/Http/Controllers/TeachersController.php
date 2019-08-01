@@ -23,7 +23,7 @@ class TeachersController extends Controller
         // $teachers = Teacher::all();
         return view('teachers.index')->with('teachers', $teachers);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -53,12 +53,12 @@ class TeachersController extends Controller
     public function storeStudentClass(Request $request)
     {
         // dd($request->all());
-        // foreach($request->input('student_class_ids) as $student_class_id) {
+        
             $data = new TeacherStudentClass;
             $data->teacher_id = $request->input('teacher_id');
             $data->student_class_id = $request->input('student_class_id');
             $data->save();
-        // }
+        
             return redirect('teachers/'.$request->input('student_class_id'));
     }
 
@@ -73,6 +73,7 @@ class TeachersController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request->all());
         $teachers= new Teacher;
         $teachers->first_name = $request->input('first_name');
         $teachers->last_name = $request->input('last_name');
@@ -118,7 +119,9 @@ class TeachersController extends Controller
         //
         // dd($id);
         $teacher = Teacher::find($id);
+        // dd($teacher);
         $student_classes = StudentClass::all();
+        // dd($student_classes);
         // dd($teacher);
         return view('teachers.edit')->with('teacher', $teacher)
         ->with('student_classes', $student_classes);
@@ -148,10 +151,12 @@ class TeachersController extends Controller
         $teachers->dob = $request->input('dob');
         $teachers->gender = $request->input('gender');
         $teachers->address = $request->input('address');
-        $teachers->student_class_id = $request->input('student_class_id');  
+        $teachers->student_class_id = $request->input('student_class_id'); 
         $teachers->save();
         // return redirect('/teachers')->with ('success', 'Class Updated');
         return redirect('/teachers/?student_class_id='.$request->input('student_class_id'))->with ('success', 'Class Updated');
+        
+
        
     }
    
@@ -169,6 +174,7 @@ class TeachersController extends Controller
         $teachers->delete();
         // return redirect('/teachers')->with ('success', 'Class Deleted');
         return redirect('/teachers/?student_class_id='.$_GET['student_class_id'])->with('success', 'Class Deleted');
+        
     }
 }
 

@@ -6,9 +6,9 @@
 <div class="col-md-12">
        <h2>Classes List</h2>
   
-              @php
+              {{-- @php
               $_GET['teacher_id'] = ''; 
-          @endphp
+          @endphp --}}
         <a href="{{ route('student_classes.create', ['teacher_id' => $_GET['teacher_id']])}}" class="btn btn-success" role="button">Create Class</a> 
  
         
@@ -19,11 +19,13 @@
         {{-- <th scope="col">Teacher Name</th> --}}
         <th scope="col">Class Title</th>
         <th scope="col">Class Section</th>
+        <th scope="col">Teacher Name</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
   <tbody> 
      @foreach ($student_classes as $student_class)
+     
      {{-- {{dd($student_classes)}} --}}
      {{-- @php
      echo '<pre>';
@@ -34,12 +36,14 @@
             
             
             <td>{{ $student_class->id }}</td>
-            {{-- <td>{{ $student_class->teacher->first_name }}
-                {{ $student_class->teacher->last_name }}</td> --}}
+          
+                
 
             <td><a href="{{ route('student_classes.show', $student_class->id) }}" >{{ $student_class->title }}</a></td>
          
             <td>{{ $student_class->section }}</td>
+            <td>{{ $student_class->teacher->first_name }}
+              {{ $student_class->teacher->last_name }}</td>
             <td>
                 <a href="{{ route('student_classes.edit', $student_class->id) }}" class="btn btn-default">
                     Edit

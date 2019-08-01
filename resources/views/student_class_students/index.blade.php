@@ -28,11 +28,11 @@
             @foreach ($student_class_students  as $student_class_student)
                 <tr>
                     <td>{{ $student_class_student->id }}</td>
-                    <td>{{ $student_class_student->student_class->title}} 
-                        {{ $student_class_student->student_class->section}}</td>
+                    <td>{{ $student_class_student->studentClass->title}} 
+                        {{ $student_class_student->studentClass->section}}</td>
                     <td>{{ $student_class_student->student->first_name}} 
                     {{$student_class_student->student->last_name}}</td>
-                    <td>{{ $student_class_student->school_session->session_year }}</td>
+                    <td>{{ $student_class_student->schoolSession->session_year }}</td>
                     <td>
                         <a href="{{ route('student_class_students.edit', $student_class_student->id) }}" class="btn btn-default">
                             Edit
