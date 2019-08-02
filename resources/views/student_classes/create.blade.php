@@ -36,12 +36,16 @@
         </div> --}}
         {{-- <div class="form-group"> 
                 <input type="hidden"  name="student_id" value="{{$student_id}}">        
-            </div>
-        --}}
+            </div> --}}
+       
 
         <div class="form-group"> 
             <input id="teacher_id" type="hidden"  name="teacher_id" value="{{ $_GET['teacher_id'] }}">        
         </div>
+
+        {{-- <div class="form-group"> 
+                <input id="student_id" type="hidden"  name="student_id" value="{{ $_GET['student_id'] }}">        
+            </div> --}}
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
@@ -56,3 +60,7 @@
     <script src="http://cdnjs/app.user_validation.js/additional-methods.min.js"></script>
     <script src="http://localhost/project/public/js/user_validation.js"></script>
 @endsection
+
+
+
+

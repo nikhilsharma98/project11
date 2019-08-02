@@ -22,7 +22,7 @@ class TeacherStudentClass extends Model
     {
         return $this->belongsTo('App\Teacher');
     }
-
+    
 
   
 

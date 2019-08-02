@@ -6,12 +6,13 @@
         <h2>Student  List</h2>
     
 
-        {{-- @php
-        $_GET['teacher_id'] = ''; 
-    @endphp --}}
+        @php
+        $_GET['student_class_id'] = ''; 
+    @endphp
         
-   
-        <a href="{{ route('students.create', ['teacher_id' => $_GET['teacher_id']])}}" class="btn btn-success" role="button">Add Student</a>
+    
+        <a href="{{ route('students.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Add Student</a>
+        {{-- <a href="{{ route('students.create')}}" class="btn btn-success" role="button">Add Student</a> --}}
 <table class="table table-striped">
     <thead>
       <tr>
@@ -28,7 +29,7 @@
           <th scope="col">Gender</th>
           <th scope="col">Address</th>
           <th>Teacher Name</th>
-          <th>Class</th>
+          <th>Student Class</th>
           <th scope="col">City</th>
           <th scope="col">State ID</th>
           <th scope="col">Countary ID</th>
@@ -41,6 +42,7 @@
        
     @foreach ($students  as $student)
         {{-- {{dd($students)}} --}}
+        
     @php
     // $student_class = '';
     $currentClass = $studentClass = $student->studentClassstudents;
@@ -63,12 +65,18 @@
             <td>{{ $student->photo }}</td>
             <td>{{ $student->gender }}</td>
             <td>{{ $student->address }}</td>
-            <td>{{ $student->teacher->first_name }}
-                {{ $student->teacher->last_name }}</td>
+            {{-- <td>{{ $student->teacher->first_name }}
+                {{ $student->teacher->last_name }}</td> --}}
+                  <td>@foreach($student->studentClass as $studentClass)
+                      {{ $studentClass->teacher->first_name }}
+                {{ $studentClass->teacher->last_name }}@endforeach</td>
+
+
+        
             <td>{{ $currentClass }}</td>
             {{-- <td>
-                @foreach ($student->student_class as $student_class)
-                    {{ $student_class->title }}{{ $student_class->section }}
+                @foreach ($student->teacher as $teacher)
+                    {{ $teacher->first_name }}{{ $teacher->last_name }}
                 @endforeach 
             </td> --}}
             <td>{{ $student->city }}</td>
@@ -84,7 +92,7 @@
                     Edit
                 </a>
 
-                <form class="form-horizontal pull-right" action="{{ URL::route('students.destroy', ['id' => $student->id, 'teacher_id' => $_GET['teacher_id']]) }}" method="POST" >
+                <form class="form-horizontal pull-right" action="{{ URL::route('students.destroy', [$student->id]) }}" method="POST" >
                         {{ csrf_field() }}
                     <input type="hidden" name="_method" value="DELETE"/>
                     <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">

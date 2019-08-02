@@ -7,9 +7,7 @@
         <a href="{{ route('student_classes.index', ["teacher_id"=>$teacher->id ]) }}" class="btn btn-default">
                 Student Classes            
         </a>
-        <a href="{{ route('students.index', ["teacher_id"=> $teacher->id ]) }}" class="btn btn-default" >
-            Students
-        </a>
+       
     <form class="form-horizontal" id="teachers" action="{{ URL::route('teachers.update', [$teacher->id]) }}" method="POST" enctype="multipart/form-data" novalidate>
         {{ csrf_field() }}
        

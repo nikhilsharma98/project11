@@ -8,6 +8,8 @@
         <a href="{{ route('teachers.index', ["student_class_id"=> $student_class->id ]) }}" class="btn btn-default" >
                 Teachers
             </a>
+
+        
     <form class="form-horizontal" id="form" action="{{ URL::route('student_classes.update', [$student_class->id]) }}" method="POST" novalidate>
         {{ csrf_field() }}
        

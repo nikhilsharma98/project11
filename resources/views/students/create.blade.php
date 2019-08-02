@@ -221,7 +221,7 @@
         </div> --}}
 
         <div class="form-group"> 
-            <input id="teacher_id" type="hidden"  name="teacher_id" value="{{ $_GET['teacher_id'] }}">        
+            <input id="student_class_id" type="hidden"  name="student_class_id" value="{{ $_GET['student_class_id'] }}">        
         </div>
 
         <div class="form-group">

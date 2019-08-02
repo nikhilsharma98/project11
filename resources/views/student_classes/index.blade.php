@@ -6,10 +6,13 @@
 <div class="col-md-12">
        <h2>Classes List</h2>
   
-              {{-- @php
+              @php
               $_GET['teacher_id'] = ''; 
-          @endphp --}}
-        <a href="{{ route('student_classes.create', ['teacher_id' => $_GET['teacher_id']])}}" class="btn btn-success" role="button">Create Class</a> 
+          @endphp
+            @php
+            $_GET['student_id'] = ''; 
+        @endphp
+        <a href="{{ route('student_classes.create', ['teacher_id' => $_GET['teacher_id']],['student_id' => $_GET['student_id']])}}" class="btn btn-success" role="button">Create Class</a> 
  
         
 <table class="table table-striped">

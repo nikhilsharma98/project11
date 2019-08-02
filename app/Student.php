@@ -12,15 +12,18 @@ class Student extends Model
 
     protected $fillable = [
         'first_name', 'last_name', 'email', 'father_name', 'mother_name', 'aadhar_id', 'dob', 'doa', 'photo', 'gender', 'address', 'city', 'state_id', 'countary_id',
-         'teacher_id'
+        //  'teacher_id'
     ];
     
 
     
+   
+
+
 
     public function studentClass()
     {
-        return $this->hasMany('App\StudentClassStudent');
+        return $this->hasMany('App\StudentClass');
     }
     public function state()
     {
@@ -51,10 +54,11 @@ class Student extends Model
     {
         return $this->hasMany('App\Work');
     }
-    public function teacher()
-    {
-        return $this->belongsTo('App\Teacher');
-    }
+    // public function teacher()
+    // {
+    //     return $this->belongsTo('App\Teacher');
+    // }
+    
     
 }
 

@@ -5,9 +5,9 @@
 <div class="col-md-12" >
         <h2>Teacher  List</h2>
     
-        {{-- @php
+        @php
         $_GET['student_class_id'] = ''; 
-    @endphp --}}
+    @endphp
    
         <a href="{{ route('teachers.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Add Teacher</a> 
        
@@ -78,3 +78,7 @@
   </table>
 </div>
 @endsection
+
+
+
+

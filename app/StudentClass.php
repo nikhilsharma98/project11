@@ -15,9 +15,14 @@ class StudentClass extends Model
         'title', 'section', 'teacher_id'
     ];
     
+   
+
+
+
+
     public function students()
     {
-        return $this->belongsTo('App\StudentClassStudent');
+        return $this->belongsTo('App\Student');
     }
     public function studentClassstudents()
     {
