@@ -12,7 +12,7 @@ class StudentClass extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'section', 'teacher_id'
+        'title', 'section', 'teacher_id',
     ];
     
    
@@ -39,6 +39,10 @@ class StudentClass extends Model
     public function teacherStudentclass()
     {
         return $this->hasMany('App\TeacherStudentClass');
+    }
+    public function studentFee()
+    {
+        return $this->hasMany('App\StudentFee');
     }
 
 }

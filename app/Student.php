@@ -11,7 +11,7 @@ class Student extends Model
     // protected $table = 'tb_job';
 
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'father_name', 'mother_name', 'aadhar_id', 'dob', 'doa', 'photo', 'gender', 'address', 'city', 'state_id', 'countary_id',
+        'first_name', 'last_name', 'email', 'father_name', 'mother_name', 'aadhar_id', 'dob', 'doa', 'photo', 'gender', 'address', 'city', 'state_id', 'countary_id', 'student_class_id'
         //  'teacher_id'
     ];
     
@@ -23,7 +23,7 @@ class Student extends Model
 
     public function studentClass()
     {
-        return $this->hasMany('App\StudentClass');
+        return $this->belongsTo('App\StudentClass');
     }
     public function state()
     {
@@ -54,10 +54,7 @@ class Student extends Model
     {
         return $this->hasMany('App\Work');
     }
-    // public function teacher()
-    // {
-    //     return $this->belongsTo('App\Teacher');
-    // }
+    
     
     
 }

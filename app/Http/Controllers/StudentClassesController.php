@@ -26,7 +26,7 @@ class StudentClassesController extends Controller
     public function index()
     {
         //
-        $student_class = StudentClass::find(1);
+        // $student_class = StudentClass::find(1);
         // $student_class = StudentClass::all();
         // $student_class = StudentClass::with(['Teacher'])->get();
         $student_class = StudentClass::with(['Teacher'])->get();
@@ -47,9 +47,10 @@ class StudentClassesController extends Controller
     {
         
         
-        $students = Work::all();
+        // $students = Work::all();
         $teachers = Teacher::all();
-        // dd($students);
+        // dd($teachers);
+        // dd($student_class);
         
         return view('student_classes.create')
         ->with('teachers', $teachers);
@@ -144,6 +145,9 @@ class StudentClassesController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
+        // dd($request->all());
         $this->validate($request,[
             'title' => 'required',
             'section' => 'required'

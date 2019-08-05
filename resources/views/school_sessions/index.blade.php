@@ -29,7 +29,7 @@
                 <form class="form-horizontal pull-right" action="{{ URL::route('school_sessions.destroy', [$school_session->id]) }}" method="POST" >
                         {{ csrf_field() }}
                     <input type="hidden" name="_method" value="DELETE"/>
-                    <button type="submit" class="btn btn-danger">
+                    <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">
                         Delete
                     </button>
                 </form>

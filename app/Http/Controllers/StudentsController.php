@@ -36,7 +36,7 @@ class StudentsController extends Controller
     {
        
         // $students = Student::all();
-        $students = Student::with(['studentClass'])->get();
+        $students = Student::with(['StudentClass'])->get();
         // dd($students);
         // echo '<pre>';
         // print_r($students);
@@ -60,6 +60,7 @@ class StudentsController extends Controller
         $states = State::all();
         $countries = Countary::all();
         $student_classes = StudentClass::all();
+        // dd($student_classes);
         $student_class = StudentClass::all();
         $student_classes = StudentClassStudent::all();
         // dd($countries);

@@ -43,9 +43,9 @@
             <input id="teacher_id" type="hidden"  name="teacher_id" value="{{ $_GET['teacher_id'] }}">        
         </div>
 
-        {{-- <div class="form-group"> 
-                <input id="student_id" type="hidden"  name="student_id" value="{{ $_GET['student_id'] }}">        
-            </div> --}}
+       {{-- <div class="form-group"> 
+            <input id="student_id" type="hidden"  name="student_id" value="{{ $_GET['student_id'] }}">        
+        </div> --}}
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

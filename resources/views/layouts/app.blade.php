@@ -46,6 +46,7 @@
     <script src="{{ asset('js/students.js') }}"></script>
     <script src="{{ asset('js/works.js') }}"></script>
     <script src="{{asset('js/teachers.js')}}"></script>
+    <script src="{{asset('js/student_fees.js')}}"></script>
     
     
 </body>

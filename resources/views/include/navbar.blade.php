@@ -59,9 +59,9 @@
                                     Teachers
                                 </a>
                                
-                                {{-- <a href="{{ route('guardians.index')}}" >
-                                    Guardians
-                                </a> --}}
+                                <a href="{{ route('student_fees.index')}}" >
+                                    Student Fee
+                                </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('logout') }}"

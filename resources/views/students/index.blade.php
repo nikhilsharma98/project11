@@ -65,20 +65,20 @@
             <td>{{ $student->photo }}</td>
             <td>{{ $student->gender }}</td>
             <td>{{ $student->address }}</td>
-            {{-- <td>{{ $student->teacher->first_name }}
-                {{ $student->teacher->last_name }}</td> --}}
-                  <td>@foreach($student->studentClass as $studentClass)
+            <td>{{ $student->studentClass->teacher->first_name }}
+                {{ $student->studentClass->teacher->last_name }}</td>
+                  {{-- <td>@foreach($student->studentClass as $studentClass)
                       {{ $studentClass->teacher->first_name }}
-                {{ $studentClass->teacher->last_name }}@endforeach</td>
-
+                {{ $studentClass->teacher->last_name }}@endforeach</td> --}}
+                {{-- <td>
+                    @foreach ($student->studentClass as $studentClass)
+                        {{ $studentClass->teacher->first_name }}{{ $studentClass->teacher->last_name }}
+                    @endforeach 
+                </td> --}}
 
         
             <td>{{ $currentClass }}</td>
-            {{-- <td>
-                @foreach ($student->teacher as $teacher)
-                    {{ $teacher->first_name }}{{ $teacher->last_name }}
-                @endforeach 
-            </td> --}}
+            
             <td>{{ $student->city }}</td>
             <td>{{ $student->state->name }}</td>
             <td>{{ $student->countary->name }}</td>

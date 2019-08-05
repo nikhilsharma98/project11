@@ -8,7 +8,12 @@
         <a href="{{ route('teachers.index', ["student_class_id"=> $student_class->id ]) }}" class="btn btn-default" >
                 Teachers
             </a>
-
+        <a href="{{ route('students.index', ["student_class_id"=> $student_class->id ]) }}" class="btn btn-default" >
+                Students
+            </a>
+            <a href="{{ route('student_fees.index', ["student_class_id"=> $student_class->id ]) }}" class="btn btn-default" >
+                    Student Fees
+                </a>
         
     <form class="form-horizontal" id="form" action="{{ URL::route('student_classes.update', [$student_class->id]) }}" method="POST" novalidate>
         {{ csrf_field() }}
@@ -43,7 +48,7 @@
             </div>
     </div>
 
-        <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
+        {{-- <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
             <label for="work_id" class="col-md-4 control-label"></label>
 
             <div class="col-md-6">
@@ -55,7 +60,7 @@
                     </span>
                 @endif
             </div>
-        </div>
+        </div> --}}
 
         <div class="form-group{{ $errors->has('teacher_id') ? ' has-error' : '' }}">
             <label for="teacher_id" class="col-md-4 control-label"></label>
@@ -81,3 +86,6 @@
     </form>
 </div>
 @endsection
+
+
+

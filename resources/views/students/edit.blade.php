@@ -14,9 +14,9 @@
         <a href="{{ route('guardians.index', ["student_id"=> $student->id ]) }}" class="btn btn-default" >
             Guardian
         </a>
-        {{-- <a href="{{ route('teachers.index', ["student_id"=> $student->id ]) }}" class="btn btn-default" >
+        {{-- <a href="{{ route('student_classes.index', ["student_class_id"=> $student->id ]) }}" class="btn btn-default" >
 
-            Teacher
+            student Class
         </a> --}}
 
 
