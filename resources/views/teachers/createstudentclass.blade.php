@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="col-md-12">
-    <h2>Create Session</h2>
+    <h2>Assign Class</h2>
     <form class="form-horizontal" id="teachers"  method="POST" action="{{ url('teachers/storestudentclass') }}"  novalidate>
         {{ csrf_field() }}
 

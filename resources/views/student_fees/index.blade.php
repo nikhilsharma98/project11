@@ -16,6 +16,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Student Fees</th>
+        <th scope="col">Student Class</th>
   
       </tr>
     </thead>

@@ -44,9 +44,19 @@
             <td><a href="{{ route('student_classes.show', $student_class->id) }}" >{{ $student_class->title }}</a></td>
          
             <td>{{ $student_class->section }}</td>
-            <td>{{ $student_class->teacher->first_name }}
-              {{ $student_class->teacher->last_name }}</td>
+              <td>{{ $student_class->teacher->first_name }}
+                {{ $student_class->teacher->last_name }}</td>
             <td>
+               {{-- <td>
+                    @foreach ($student_classes as $student_class)
+                        {{ $student_class->teacher_student_class->first_name }}{{ $student_class->teacher_student_class->last_name }}
+                    @endforeach 
+                </td> --}}
+                      {{-- <td>
+                        @foreach($student_class as $student_class)
+                      {{ $student_class->teacher->first_name }}
+                {{ $student_class->teacher->last_name }}@endforeach
+              </td> --}}
                 <a href="{{ route('student_classes.edit', $student_class->id) }}" class="btn btn-default">
                     Edit
                 </a>

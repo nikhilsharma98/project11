@@ -30,4 +30,10 @@ class Teacher extends Model
 
 
 
+Work Report
+Project: project11
 
+Task1: assign the fees on classes.
+Status: Done.
+
+=> sir I have push my code on github !

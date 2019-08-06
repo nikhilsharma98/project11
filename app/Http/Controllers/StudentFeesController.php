@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\StudentFee;
 use App\StudentClass;
+use App\TeacherStudentFees;
+use Illuminate\Http\Request;
 
 class StudentFeesController extends Controller
 {
@@ -17,6 +18,7 @@ class StudentFeesController extends Controller
     {
         //
         $studentFees = StudentFee::with(['StudentClass'])->get();
+        // dd($studentFees);
         return view('student_fees.index')->with('student_fees', $studentFees);
         
     }
@@ -33,18 +35,30 @@ class StudentFeesController extends Controller
         return view('student_fees.create')
         ->with('student_classes', $student_classes);
     }
-    // public function createStudentClass(Request $request, $teacher_id)
-    // {
+    public function createStudentFees(Request $request, $student_fee_id)
+    {
         
-    //     //
-    //     // dd($request->all());
-    //     // dd($teacher_id);
-    //     $student_classes = StudentClass::all();
-    //     $teachers = Teacher::all();
-    //     return view('teachers.createstudentclass')
-    //     ->with('student_classes', $student_classes)
-    //     ->with('teacher_id', $teacher_id);
-    // }
+        //
+        // dd($request->all());
+        // dd($teacher_id);
+        $student_classes = StudentClass::all();
+        $studentFees = StudentFee::all();
+        return view('student_fees.createstudentfees')
+        ->with('student_classes', $student_classes)
+        ->with('student_fee_id', $student_fee_id);
+    }
+
+    public function storeStudentFees(Request $request)
+    {
+            // dd($request->all());
+        
+            $StudentFees = new TeacherStudentFees;
+            $StudentFees->student_fee_id = $request->input('student_fee_id');
+            $StudentFees->student_class_id = $request->input('student_class_id');
+            $StudentFees->save();
+        
+            return redirect('student_fees/'.$request->input('student_class_id'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -71,14 +85,13 @@ class StudentFeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($student_fee_id)
+    public function show($id)
     {
         //
         // dd('okay');
-        // dd($student_fee_id);
-        $studentFee = StudentFee::find($student_fee_id);
-        // dd($studentFee);
-        return view('student_fees.show')->with('studentFee', $studentFee);
+        $studentFee = StudentFee::find($id);
+        // dd($teacher);
+        return view('student_fees.show')->with('student_fee', $studentFee);
       
     }
     // public function show($teacher_id)

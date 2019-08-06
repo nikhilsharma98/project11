@@ -75,5 +75,6 @@ Route::post('/teachers/storestudentclass', 'TeachersController@storeStudentClass
 
 Route::resource('student_fees', 'StudentFeesController');
 
-Route::get('/student_fees/create/{id}', 'StudentFeesController@createStudentClass');
-Route::post('/student_fees/storestudentclass', 'TeachersController@storeStudentClass'); 
+Route::get('/student_fees/create/{id}', 'StudentFeesController@createStudentFees');
+Route::post('/student_fees/storestudentfees', 'StudentFeesController@storeStudentFees');
+

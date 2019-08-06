@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="col-md-12">
-    <h2>Create Session</h2>
-    <form class="form-horizontal" id="teachers"  method="POST" action="{{ url('student_fees/storestudentclass') }}"  novalidate>
+    <h2>Assign Class</h2>
+    <form class="form-horizontal" id="teachers"  method="POST" action="{{ url('student_fees/storestudentfees') }}"  novalidate>
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('student_class') ? ' has-error' : '' }}">
@@ -31,7 +31,7 @@
         </div>
 
            <div class="form-group"> 
-            <input type="hidden"  name="teacher_id" value="{{$teacher_id}}">        
+            <input type="hidden"  name="student_fee_id" value="{{$student_fee_id}}">        
         </div>
 
         
