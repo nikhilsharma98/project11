@@ -151,7 +151,7 @@ class StudentsController extends Controller
     {
         //
         // dd($id);
-        // dd($id);
+        // dd("okay");
         // $students = Student::find($id);
         // dd($students);
         $students = Work::latest()->limit(10)->get();
@@ -161,6 +161,20 @@ class StudentsController extends Controller
         ->with('works', $works);
     }
 
+    public function studentDetail($id)
+    {
+        // dd($id);
+        // dd("okay");
+        // $students = Student::all();
+         $student = Student::find($id);
+         
+        // return view('students.studentdetail')->with('student', $student);
+            // ->with('student_id', $student_id);
+
+        return response()->json($student);
+
+    }
+   
     /**
      * Show the form for editing the specified resource.
      *

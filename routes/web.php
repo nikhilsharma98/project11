@@ -23,6 +23,8 @@ Route::resource('student_classes', 'StudentClassesController');
 Route::get('student_classes/create/{teacher_id}','StudentClassesController@create');
 
 Route::resource('students', 'StudentsController');
+Route::get('/students/studentDetail/{id}', 'StudentsController@studentDetail');
+
 
 Route::resource('schools', 'SchoolsController');
 

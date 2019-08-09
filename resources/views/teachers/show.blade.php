@@ -21,7 +21,7 @@
                    <div class="col-sm-6"><strong>#</strong></div>
                         <td>{{ $teacher->id }}</td><br>
                     <div class="col-sm-6"><strong>First Name</strong></div>
-                        <td>{{ $teacher->first_name	 }}</td><br>
+                        <td>{{ $teacher->first_name}}</td><br>
                    <div class="col-sm-6"><strong>Last Name</strong></div>
                         <td>{{ $teacher->last_name }}</td>
                     <div class="col-sm-6"><strong>Email</strong></div><br>

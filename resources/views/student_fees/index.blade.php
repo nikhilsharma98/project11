@@ -27,7 +27,7 @@
                 {{-- <td><a href="{{ route('teachers.show', $teacher->id) }}" >{{ $teacher->first_name }}</a></td> --}}
             
             <td>{{ $student_fee->id }}</td>
-            <td> <a href="{{ route('student_fees.show', $student_fee->id) }}" >{{ $student_fee->class_fees }}</a></td>
+            <td><a href="{{ route('student_fees.show', $student_fee->id) }}" >{{ $student_fee->class_fees }}</a></td>
             <td>{{ $student_fee->studentClass->title }}
                     {{ $student_fee->studentClass->section }}</td>
             {{-- <td>
