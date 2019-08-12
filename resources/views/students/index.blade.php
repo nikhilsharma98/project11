@@ -56,7 +56,7 @@
             <td>{{ $student->aadhar_id }}</td>
             <td>{{ $student->dob }}</td>
             <td>{{ $student->doa }}</td>
-            <td>{{ $student->photo }}</td>
+             <td><img style="width:60%;height:30%;" src="/images/{{$student->photo}}" /></td>
             <td>{{ $student->gender }}</td>
             <td>{{ $student->address }}</td> --}}
             <td>{{ $student->studentClass->teacher->first_name }}
@@ -86,7 +86,7 @@
                     Edit
                 </a>
 
-                <form class="form-horizontal pull-right" action="{{ URL::route('students.destroy', [$student->id]) }}" method="POST" >
+                <form class="form-horizontal pull-right" action="{{ URL::route('students.destroy', ['id' => $student->id, 'student_class_id' => $_GET['student_class_id']]) }}" method="POST" >
                         {{ csrf_field() }}
                     <input type="hidden" name="_method" value="DELETE"/>
                     <button type="submit" class="btn btn-danger" name="button" onclick="return confirm('Are you sure to delete this record?')">
@@ -94,6 +94,7 @@
                     </button>
                     
                 </form>
+
             </td>
         
         </tr>   

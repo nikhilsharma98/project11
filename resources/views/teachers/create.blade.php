@@ -167,7 +167,12 @@
         </div>
 
         {{-- <div class="form-group"> 
-                <input id="work_id" type="hidden"  name="work_id" value="{{ $_GET['work_id'] }}">        
+                <input id="work_id" type="hidden"  name="work_id" value="{{ $_GET['work_id'] }}"> 
+                
+                
+                <div class="form-group"> 
+            <input type="hidden"  name="student_class_id" value="{{$student_class_id}}">        
+        </div>
             </div> --}}
 
         <div class="form-group">

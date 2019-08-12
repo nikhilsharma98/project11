@@ -52,4 +52,3 @@ $('.btn_show').click(function(){
 //     })
 
 // });
-

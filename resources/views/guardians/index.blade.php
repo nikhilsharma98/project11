@@ -30,10 +30,10 @@
         <tr>
             <td>{{ $guardian->id }}</td>
             <td>{{ $guardian->father_name }}</td>
-            <td>{{ $guardian->father_image }}</td>
+            <td> <img style="width:60%;height:100px;" src="/guardian/{{$guardian->father_image}}" /></td>
             <td>{{ $guardian->father_occupation }}</td>
             <td>{{ $guardian->mother_name }}</td>
-            <td>{{ $guardian->mother_image }}</td>
+            <td> <img style="width:60%;height:100px;" src="/guardian/{{$guardian->mother_image}}" /></td>
             <td>{{ $guardian->mother_occupation }}</td>
             
             <td>
@@ -42,7 +42,7 @@
                 
                 <a href="{{ route('guardians.edit', $guardian->id) }}" class="btn btn-default">
                     Edit
-                </a>
+                </a><br><br>
 
                 {{-- <a href="{{ route('student_class_students.index', ["student_id"=> $student->id ]) }}" class="btn btn-default" >
                   Class Details

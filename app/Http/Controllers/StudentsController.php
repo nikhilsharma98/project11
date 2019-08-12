@@ -56,6 +56,7 @@ class StudentsController extends Controller
         //
         // $teachers = Teacher::all();
         $students = Student::all();
+        // dd($students);
         $student_class_students = Work::all();
         $states = State::all();
         $countries = Countary::all();
