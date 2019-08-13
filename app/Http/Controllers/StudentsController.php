@@ -135,6 +135,7 @@ class StudentsController extends Controller
           $students->city = $request->input('city');
           $students->state_id = $request->input('state_id');
           $students->countary_id = $request->input('countary_id'); 
+          $students->status = $request->input('status'); 
           $students->student_class_id = $request->input('student_class_id'); 
           $students->save();
   
@@ -168,6 +169,7 @@ class StudentsController extends Controller
         // dd("okay");
         // $students = Student::all();
          $student = Student::find($id);
+        //  $student->status = $request->query('value');
          
         // return view('students.studentdetail')->with('student', $student);
             // ->with('student_id', $student_id);
@@ -258,6 +260,7 @@ class StudentsController extends Controller
           $students->city = $request->input('city');
           $students->state_id = $request->input('state_id');
           $students->countary_id = $request->input('countary_id');
+          $students->status = $request->input('status'); 
           $students->student_class_id = $request->input('student_class_id');
 
           if($request->hasfile('photo')){

@@ -241,6 +241,29 @@
                 </div>
         </div>
 
+        <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
+            <label for="status" class="col-md-4 control-label">Status</label>
+
+            <div class="col-md-6">
+              
+                {{-- <select name="status">
+                    <option value="0" @if ($status->status==1) selected @endif>Active</option>
+                    <option value="1" @if ($status->status==1) selected @endif>IN Active</option>
+                  </select> --}}
+                  <select name="status">
+                    <option value="0 @if ($student->status==1) selected @endif">Active</option>
+                    <option value="1 @if ($student->status==1) selected @endif">IN Active</option>
+                  </select>
+            
+
+                @if ($errors->has('status'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('status') }}</strong>
+                    </span>
+                @endif
+            </div>
+    </div>
+
         <div class="form-group{{ $errors->has('student_class_id') ? ' has-error' : '' }}">
             <label for="student_class_id" class="col-md-4 control-label"></label>
 

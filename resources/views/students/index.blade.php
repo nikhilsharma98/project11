@@ -4,9 +4,9 @@
 <div class="col-md-12" >
         <h2>Student  List</h2>
 
-        @php
+        {{-- @php
         $_GET['student_class_id'] = ''; 
-    @endphp
+    @endphp --}}
     
         <a href="{{ route('students.create', ['student_class_id' => $_GET['student_class_id']])}}" class="btn btn-success" role="button">Add Student</a>
      
@@ -25,7 +25,7 @@
           <th scope="col">Photo</th>
           <th scope="col">Gender</th>
           <th scope="col">Address</th> --}}
-          <th>Teacher Name</th>
+          {{-- <th>Teacher  Name</th> --}}
           <th>Student Class</th>
           {{-- <th scope="col">City</th>
           <th scope="col">State ID</th>
@@ -59,8 +59,8 @@
              <td><img style="width:60%;height:30%;" src="/images/{{$student->photo}}" /></td>
             <td>{{ $student->gender }}</td>
             <td>{{ $student->address }}</td> --}}
-            <td>{{ $student->studentClass->teacher->first_name }}
-                {{ $student->studentClass->teacher->last_name }}</td>
+            {{-- <td>{{ $student->studentClass->teacher->first_name }}
+                {{ $student->studentClass->teacher->last_name }}</td> --}}
                   {{-- <td>@foreach($student->studentClass as $studentClass)
                       {{ $studentClass->teacher->first_name }}
                 {{ $studentClass->teacher->last_name }}@endforeach</td> --}}
@@ -72,15 +72,24 @@
 
         
                 <td>{{ $currentClass }}</td>
-            
+                <td>{{ $student->status }}</td>
                 {{-- <td>{{ $student->city }}</td>
                 <td>{{ $student->state->name }}</td>
                 <td>{{ $student->countary->name }}</td> --}}
             <td>
             
-                <input type="hidden" id="student_id" name="student_id" value="{{ $student->id }}">
-                <button type="button" id="{{ $student->id }}" class="btn btn-info btn-lg btn_show" data-toggle="modal" data-target="#detailshow">Show Detail</button>
+                <input type="hidden" data_id="student_id" name="student_id" value="{{ $student->id }}">
+                <button type="button" id="{{ $student->id }}" class="btn btn-info btn-lg btn_show" data-toggle="modal" data-target="#showdetail">Student Detail</button>
                 
+                <td select data_id={{$student->id}} name="student" id="studentid">
+                        <div class="table table-responsive btn_show">
+                                <select name="status" >
+                                    <option value="">------Selected-----</option >
+                                    <option value="0 @if ($student->status==0) selected @endif">Active</option>
+                                    <option value="1 @if ($student->status==1) selected @endif">In Active</option>        
+                                </select>
+                            </td>
+                        </div> 
 
                 <a href="{{ route('students.edit', $student->id) }}" class="btn btn-default">
                     Edit
@@ -114,6 +123,21 @@
             <h4 class="modal-title table table-stripped"><strong>Student List</strong></h4>
         </div>
         <div class="modal-body table table-stripped"></div>
+
+
+       
+
+        {{-- <input type="hidden" id="student_id" name="student_id" value="{{ $student->id }}">
+        <td select data_id={{$student->id}} name="student" id="studentid">
+        <div class="table table-responsive">
+                <select name="status" >
+                    <option value="">--------Selected--------</option >
+                    <option value="0 @if ($student->status==0) selected @endif">Active</option>
+                    <option value="1 @if ($student->status==1) selected @endif">In Active</option>        
+                </select>
+            </td>
+        </div>  --}}
+
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>

@@ -2,8 +2,6 @@
 $('.btn_show').click(function(){
     // alert("okay");
     var student_id = this.id;
-    // var abc = $(this).closest('input').val();
-    // e.preventDefault();
     $.ajax({ 
         type: "get",
         url: '/students/studentDetail/' + student_id,
@@ -11,7 +9,6 @@ $('.btn_show').click(function(){
         success: function(res){
             let modalBody = '';
             for(key in res){
-                // if(key !== "countary_id" && key !== "state_id" && key !== "Student_class_id"){
                     
                     var keyString = _.startCase(key);
                     // alert(key)
@@ -21,15 +18,50 @@ $('.btn_show').click(function(){
                                     <div class="col-md-6"><label>'+res[key] +'<label></div>\n\
                                 </div>\n\
                                 </div>';
-                // }
-                            
+                                // alert(new_option)
+                                // var new_option = $(".student_id").val();
+                                // $(".student_id").append('<option value="' + new_option + '">' + new_option + '</option    >');
+                                
+
             }
-            
+
             $("#modalViewDetails .modal-body").html(modalBody)
             $("#modalViewDetails").modal(); 
         }
     });
 })
+
+
+
+$('.btn_show').on('change', '#studentid', function(){
+
+    var value =   $(this).val();
+    var id =   $(this).value(id);
+    // alert(value+ "" +id)
+    $.ajax({
+        type: "GET",
+        url: '/studentDetail',
+        dataType: "json",
+        data:{
+            id: id,
+            value: value
+        },
+        success: function(result){
+            // alert(res);
+        // alert(result);
+        },
+
+        error:function(){
+            // alert('error');
+        }
+    });
+});
+
+
+// var new_option = $("#textbox_id").val();
+
+// $("#my_select_id").append('<option value="' + new_option + '">' + new_option + '</option>');
+
 
 // $(document).ready(function(){
 //     alert('jhsdfj');

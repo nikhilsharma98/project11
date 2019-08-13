@@ -216,6 +216,24 @@
                 </div>
         </div>
 
+        <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
+            <label for="status" class="col-md-4 control-label">Status</label>
+
+            <div class="col-md-6">
+                   
+                <select name="status">
+                    <option value="0">Active</option>
+                    <option value="1">IN Active</option>
+                    </select>
+                    
+                @if ($errors->has('status'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('status') }}</strong>
+                    </span>
+                @endif
+            </div>
+    </div>
+
          {{-- <div class="form-group"> 
             <input type="hidden"  name="teacher_id" value="{{$teacher_id}}">        
         </div> --}}

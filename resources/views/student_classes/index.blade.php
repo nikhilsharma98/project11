@@ -39,7 +39,7 @@
             
             <td>{{ $student_class->id }}</td>
           
-                
+             
 
             <td><a href="{{ route('student_classes.show', $student_class->id) }}" >{{ $student_class->title }}</a></td>
          
