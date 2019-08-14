@@ -219,12 +219,12 @@
         <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
             <label for="status" class="col-md-4 control-label">Status</label>
 
-            <div class="col-md-6">
+            <div class="col-md-6" id=$student>
                    
                 <select name="status">
                     <option value="0">Active</option>
                     <option value="1">IN Active</option>
-                    </select>
+                </select>
                     
                 @if ($errors->has('status'))
                     <span class="help-block">

@@ -81,7 +81,7 @@
                 <input type="hidden" data_id="student_id" name="student_id" value="{{ $student->id }}">
                 <button type="button" id="{{ $student->id }}" class="btn btn-info btn-lg btn_show" data-toggle="modal" data-target="#showdetail">Student Detail</button>
                 
-                <td select data_id={{$student->id}} name="student" id="studentid">
+                {{-- <td select data_id={{$student->id}} name="student" id="studentid">
                         <div class="table table-responsive btn_show">
                                 <select name="status" >
                                     <option value="">------Selected-----</option >
@@ -89,7 +89,7 @@
                                     <option value="1 @if ($student->status==1) selected @endif">In Active</option>        
                                 </select>
                             </td>
-                        </div> 
+                        </div>  --}}
 
                 <a href="{{ route('students.edit', $student->id) }}" class="btn btn-default">
                     Edit
@@ -124,19 +124,18 @@
         </div>
         <div class="modal-body table table-stripped"></div>
 
-
-       
-
-        {{-- <input type="hidden" id="student_id" name="student_id" value="{{ $student->id }}">
-        <td select data_id={{$student->id}} name="student" id="studentid">
-        <div class="table table-responsive">
-                <select name="status" >
-                    <option value="">--------Selected--------</option >
-                    <option value="0 @if ($student->status==0) selected @endif">Active</option>
-                    <option value="1 @if ($student->status==1) selected @endif">In Active</option>        
-                </select>
-            </td>
-        </div>  --}}
+        <input type="hidden" id="student_id" name="student_id" value="{{ $student->id }}">
+        <td select id={{$student->id}} name="student" id="student-id" >
+            <div class="dropdown btn_show" id={{$student->id}}>
+                
+                    <select name="status" id="btn_show" style="margin-left:10%;">
+                        <option value="">--------Selected--------</option >
+                        <option value="0 @if ($student->status==0) selected @endif">Active</option>
+                        <option value="1 @if ($student->status==1) selected @endif">In Active</option>        
+                    </select>
+            </div>     
+        </td>
+        
 
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -177,7 +177,21 @@ class StudentsController extends Controller
         return response()->json($student);
 
     }
-   
+
+
+    public function studentDetails(Request $request)
+    {
+       
+        // dd($request->all());
+         $student = Student::find($request->query('id'));
+         $student->status = $request->query('value');
+         $student->save();
+         return response()->json($student);
+        // return view('students.studentdetails')->with('student', $student);
+        
+
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *

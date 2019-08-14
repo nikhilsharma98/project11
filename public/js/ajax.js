@@ -33,21 +33,26 @@ $('.btn_show').click(function(){
 
 
 
-$('.btn_show').on('change', '#studentid', function(){
 
-    var value =   $(this).val();
-    var id =   $(this).value(id);
-    // alert(value+ "" +id)
+$('#btn_show').on('change','#student-id', function(){
+// alert(btn_show)
+
+    var value = $(this).val();
+    var id = $(this).value(id);
+    // alert(btn_show)
+    alert(value+ "" +id)
+    
+    // alert(id)
     $.ajax({
         type: "GET",
-        url: '/studentDetail',
+        url: '/students/studentDetail/' + student_id,
         dataType: "json",
         data:{
             id: id,
-            value: value
+            value: value,
         },
-        success: function(result){
-            // alert(res);
+        success: function(response){
+            // alert(response)
         // alert(result);
         },
 
