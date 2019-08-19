@@ -72,7 +72,7 @@
 
         
                 <td>{{ $currentClass }}</td>
-                <td>{{ $student->status }}</td>
+                {{-- <td>{{ $student->status }}</td> --}}
                 {{-- <td>{{ $student->city }}</td>
                 <td>{{ $student->state->name }}</td>
                 <td>{{ $student->countary->name }}</td> --}}
@@ -125,15 +125,16 @@
         <div class="modal-body table table-stripped"></div>
 
         <input type="hidden" id="student_id" name="student_id" value="{{ $student->id }}">
-        <td select id={{$student->id}} name="student" id="student-id" >
-            <div class="dropdown btn_show" id={{$student->id}}>
+        <td> <select id={{$student->id}} name="student" id="student-id" class="btn_show">
+            <div class="status btn_show" id={{$student->id}}>
                 
-                    <select name="status" id="btn_show" style="margin-left:10%;">
+                    
                         <option value="">--------Selected--------</option >
-                        <option value="0 @if ($student->status==0) selected @endif">Active</option>
-                        <option value="1 @if ($student->status==1) selected @endif">In Active</option>        
+                        <option value="0" @if ($student->status==0) selected @endif>Active</option>
+                        <option value="1" @if ($student->status==1) selected @endif>In Active</option>        
                     </select>
-            </div>     
+            {{-- </div>      --}}
+            {{-- <select name="status" id="btn_show"> --}}
         </td>
         
 

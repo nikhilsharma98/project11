@@ -17,14 +17,9 @@ $('.btn_show').click(function(){
                                     <div class="col-md-6"><label>'+ keyString +'<label></div>\n\
                                     <div class="col-md-6"><label>'+res[key] +'<label></div>\n\
                                 </div>\n\
-                                </div>';
-                                // alert(new_option)
-                                // var new_option = $(".student_id").val();
-                                // $(".student_id").append('<option value="' + new_option + '">' + new_option + '</option    >');
-                                
-
+                                </div>';        
             }
-
+            
             $("#modalViewDetails .modal-body").html(modalBody)
             $("#modalViewDetails").modal(); 
         }
@@ -34,28 +29,23 @@ $('.btn_show').click(function(){
 
 
 
-$('#btn_show').on('change','#student-id', function(){
-// alert(btn_show)
-
-    var value = $(this).val();
-    var id = $(this).value(id);
+$('#btn_show').on('change','#student-id', function(e){
     // alert(btn_show)
-    alert(value+ "" +id)
-    
-    // alert(id)
+    var valu = $(this).val();
+    var id = $(this).data('id'); 
+    // alert(value+ "" +id)
     $.ajax({
         type: "GET",
-        url: '/students/studentDetail/' + student_id,
+        url: '/StudentStatus',
         dataType: "json",
         data:{
             id: id,
-            value: value,
+            valu: valu
         },
-        success: function(response){
-            // alert(response)
+        success: function(result){
+            // console.log(result);
         // alert(result);
         },
-
         error:function(){
             // alert('error');
         }
@@ -63,29 +53,3 @@ $('#btn_show').on('change','#student-id', function(){
 });
 
 
-// var new_option = $("#textbox_id").val();
-
-// $("#my_select_id").append('<option value="' + new_option + '">' + new_option + '</option>');
-
-
-// $(document).ready(function(){
-//     alert('jhsdfj');
-//     $('.#displaybtn').click(function(e){
-//         var abc = $(this).closest('input').val();
-//         alert('1');
-//         // e.preventDefault();
-//         $.ajax({ 
-//             method: "post",
-//             url: "/students/index/{$student_id}",
-//             data: $('#displaydata').serialize(),
-//             dataType: "html",
-            
-//             success: function(response){
-//         // alert('2');
-                    
-//                     $('#messagedisplay').text(response);
-//             }
-//         });
-//     })
-
-// });

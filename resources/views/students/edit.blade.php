@@ -251,8 +251,8 @@
                     <option value="1" @if ($status->status==1) selected @endif>IN Active</option>
                   </select> --}}
                   <select name="status">
-                    <option value="0 @if ($student->status==1) selected @endif">Active</option>
-                    <option value="1 @if ($student->status==1) selected @endif">IN Active</option>
+                    <option value="1" @if ($student->status == 0) selected @endif>Active</option>
+                    <option value="0" @if ($student->status == 1) selected @endif>IN Active</option>
                   </select>
             
 

@@ -24,7 +24,7 @@ Route::get('student_classes/create/{teacher_id}','StudentClassesController@creat
 
 Route::resource('students', 'StudentsController');
 Route::get('/students/studentDetail/{id}', 'StudentsController@studentDetail');
-Route::get('/students/studentDetails/{id}', 'StudentsController@studentDetails');
+Route::get('/StudentStatus', 'StudentsController@StudentStatus');
 
 
 Route::resource('schools', 'SchoolsController');

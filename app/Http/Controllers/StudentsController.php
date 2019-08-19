@@ -120,7 +120,9 @@ class StudentsController extends Controller
             }
         
         //    dd($request->all());
+          
           $students= new Student;
+          $status = $request->status;
           $students->first_name = $request->input('first_name');
           $students->last_name = $request->input('last_name');
           $students->email = $request->input('email');
@@ -179,18 +181,18 @@ class StudentsController extends Controller
     }
 
 
-    public function studentDetails(Request $request)
+    public function StudentStatus(Request $request)
     {
-       
         // dd($request->all());
-         $student = Student::find($request->query('id'));
-         $student->status = $request->query('value');
-         $student->save();
-         return response()->json($student);
-        // return view('students.studentdetails')->with('student', $student);
+        // $student = Student::find($id);
+        $student = Student::find($request->query('id'));
+        $student->status = $request->query('valu');
+        $student->save();
+        return response()->json(true);
+        // return view('students.studentstatus')->with('student', $student);
         
-
     }
+
     
     /**
      * Show the form for editing the specified resource.
@@ -257,9 +259,10 @@ class StudentsController extends Controller
             $request->file('photo')->move(public_path('images'), $imageName);
         }   
             // dd($request->hasfile('photo'));
-
+          
           $students = Student::find($id);
         //   dd($request->all());
+          $status = $request->status;
           $students->first_name = $request->input('first_name');
           $students->last_name = $request->input('last_name');
           $students->email = $request->input('email');
